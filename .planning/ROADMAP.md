@@ -29,7 +29,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. The system prompt containing Nathan's bio, book, and basketball details is only readable server-side
   4. The assistant responds to off-topic questions by redirecting to Nathan-related topics
   5. The function returns a 200 response to OPTIONS preflight requests
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 01-01-PLAN.md — Create Netlify Function chat endpoint with config files and deploy verification
 
 ### Phase 2: Page Split & Navigation
 **Goal**: Visitors can navigate a four-page site where all original content, images, and styles from the current index.html are preserved exactly
@@ -69,11 +72,11 @@ Decimal phases appear between their surrounding integers in numeric order.
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Netlify Function | 0/? | Not started | - |
+| 1. Netlify Function | 0/1 | Planning complete | - |
 | 2. Page Split & Navigation | 0/? | Not started | - |
 | 3. Chat Widget | 0/? | Not started | - |
 | 4. Polish & Launch | 0/? | Not started | - |
