@@ -76,7 +76,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Netlify Function | 0/1 | Planning complete | - |
+| 1. Netlify Function | 0/1 | In progress (checkpoint Task 3) | - |
 | 2. Page Split & Navigation | 0/? | Not started | - |
 | 3. Chat Widget | 0/? | Not started | - |
 | 4. Polish & Launch | 0/? | Not started | - |
