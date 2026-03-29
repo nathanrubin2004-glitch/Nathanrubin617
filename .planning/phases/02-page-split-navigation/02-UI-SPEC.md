@@ -22,7 +22,7 @@ created: 2026-03-28
 | Preset | not applicable | No shadcn; no build tools |
 | Component library | none | Tailwind CSS via CDN only |
 | Icon library | inline SVG (hamburger menu) | Existing codebase — index.html line 283 |
-| Font | Inter (Google Fonts CDN), weights 400/600/700/800 | index.html line 10 |
+| Font | Inter (Google Fonts CDN), weights 400/700 | index.html line 10 — consolidated to 2 active weights |
 
 No shadcn initialization required. Project is pure static HTML with Tailwind CDN. Registry safety gate: not applicable.
 
@@ -51,11 +51,13 @@ Exceptions: Nav touch targets use `py-2` (8px vertical) on desktop links and `py
 | Role | Size | Weight | Line Height | Source |
 |------|------|--------|-------------|--------|
 | Body | 16px (base) | 400 (regular) | 1.5 | Tailwind default; Inter font |
-| Label / Nav | 14px (text-sm) | 600 (semibold) | 1.25 | Nav links: `text-sm font-semibold uppercase tracking-wider` |
-| Subheading | 18px (1.125rem) | 700 (bold) | 1.2 | Chat input placeholder at 0.9rem; section subheadings at 1.125rem |
-| Display / Logo | 24px (text-2xl) | 800 (extrabold) | 1.1 | Site wordmark: `text-2xl font-extrabold tracking-tight` |
+| Label / Nav | 14px (text-sm) | 700 (bold) | 1.25 | Nav links: `text-sm font-bold uppercase tracking-wider` — consolidated from semibold to bold |
+| Subheading | 18px (1.125rem) | 700 (bold) | 1.2 | Section subheadings at 1.125rem |
+| Display / Logo | 24px (text-2xl) | 700 (bold) | 1.1 | Site wordmark: `text-2xl font-bold tracking-tight` — consolidated from extrabold to bold |
 
-Note: Phase 2 introduces no new text elements. These values describe the existing typographic system that styles.css must preserve exactly (SITE-05).
+Active weights: **400** (body, regular text) and **700** (all emphasized roles — nav labels, subheadings, display/logo). Maximum 2 weights enforced.
+
+Note: Phase 2 introduces no new text elements. These values describe the existing typographic system that styles.css must preserve exactly (SITE-05). The Google Fonts CDN import may load additional weights; only 400 and 700 are used in the active type contract.
 
 ---
 
@@ -165,6 +167,7 @@ No new copy is written in Phase 2. All text is preserved from the existing singl
 ### Nav hamburger (mobile)
 
 - Trigger: tap `#mobile-menu-btn` (hamburger icon, `h-8 w-8` SVG)
+- Accessibility: `aria-label="Open navigation menu"` must be present on `#mobile-menu-btn` (icon-only button — no visible text label)
 - Effect: toggle `hidden` class on `#mobile-menu` (existing JS handles this — no changes in Phase 2)
 - Touch target: 48px (8px padding around 32px icon) — satisfies 44px minimum
 - Active indicator applies to mobile menu links as well as desktop links (Claude's discretion confirmed in CONTEXT.md)
@@ -252,6 +255,7 @@ No external component registries. Phase 2 introduces no new dependencies. Tailwi
 | Using JS to detect active page | Violates D-03; adds JS dependency to navigation | Hardcode active class per file |
 | Changing any `href` value during nav edits | Breaks navigation (NAV-01, NAV-02) | Only the `class` attribute changes; hrefs are untouched |
 | Placing styles.css in a subdirectory | 404 on Netlify — all custom styles absent, Tailwind utilities still work | styles.css at repo root, same level as HTML files |
+| Omitting aria-label on `#mobile-menu-btn` | Icon-only button is inaccessible to screen readers | Add `aria-label="Open navigation menu"` to the button element |
 
 ---
 
@@ -279,9 +283,11 @@ No external component registries. Phase 2 introduces no new dependencies. Tailwi
 | Content fidelity method | CONTEXT.md D-06 | Grep checks, not visual review |
 | Page titles | CONTEXT.md D-07 | Preserved exactly as-is |
 | Mobile nav active treatment | CONTEXT.md (Claude's discretion) | Applied — `text-blue-600` on mobile links too |
-| Font | Codebase inspection | Inter 400/600/700/800 |
+| Font | Codebase inspection | Inter 400/700 (consolidated to 2 active weights) |
 | Color tokens | Codebase inspection | `#3b82f6`, `#2563eb`, `#f7f3f0` |
 | Load order | RESEARCH.md pitfall 3 | Tailwind CDN script before styles.css link |
 | Imgur URLs | RESEARCH.md | Full catalogue — 15 URLs across 4 pages |
+| Typography weight consolidation | Checker revision — Dimension 4 BLOCK | Reduced from 4 weights (400/600/700/800) to 2 weights (400/700) |
+| Hamburger aria-label | Checker revision — Dimension 2 FLAG | `aria-label="Open navigation menu"` added to interaction contract |
 
 *0 questions asked of user. All decisions pre-populated from upstream artifacts and codebase inspection.*
