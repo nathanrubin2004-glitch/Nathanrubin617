@@ -43,8 +43,12 @@ Plans:
   2. Every nav link on every page leads to the correct destination (16 combinations, no broken anchors)
   3. All original text, images, and Imgur URLs appear identically to the current single-page site
   4. Nav bar is visible and all four links work correctly on a mobile screen
-**Plans**: TBD
+**Plans:** 2 plans
 **UI hint**: yes
+
+Plans:
+- [ ] 02-01-PLAN.md — Extract shared CSS into styles.css and add active nav indicators
+- [ ] 02-02-PLAN.md — Content fidelity verification and visual checkpoint
 
 ### Phase 3: Chat Widget
 **Goal**: Visitors can open a chat panel on any of the four pages and have a real conversation with an AI assistant that knows Nathan's story
@@ -77,6 +81,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Netlify Function | 1/1 | Complete | 2026-03-29 |
-| 2. Page Split & Navigation | 0/? | Not started | - |
+| 2. Page Split & Navigation | 0/2 | Not started | - |
 | 3. Chat Widget | 0/? | Not started | - |
 | 4. Polish & Launch | 0/? | Not started | - |
