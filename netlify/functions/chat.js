@@ -1,6 +1,5 @@
 // Netlify Function: chat.js
-// Source: https://developers.netlify.com/guides/migrating-to-the-modern-netlify-functions/
-// Source: https://docs.anthropic.com/en/api/messages
+// Proxies chat requests to Google Gemini API — keeps API key server-side only.
 
 const SYSTEM_PROMPT = `You are an AI assistant on Nathan Rubin's personal portfolio website (nathanrubin617.com). Your role is to help visitors learn about Nathan and his work.
 
@@ -28,7 +27,7 @@ function corsHeaders() {
 }
 
 export default async function (req) {
-  // Handle OPTIONS preflight (FUNC-06)
+  // Handle OPTIONS preflight
   if (req.method === 'OPTIONS') {
     return new Response(null, { status: 200, headers: corsHeaders() });
   }
@@ -41,8 +40,8 @@ export default async function (req) {
     });
   }
 
-  // Read API key from environment (FUNC-03) — never hardcoded, never exposed to client
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  // Read API key from environment — never hardcoded, never exposed to client
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return new Response(JSON.stringify({ error: 'API key not configured' }), {
       status: 500,
@@ -50,7 +49,7 @@ export default async function (req) {
     });
   }
 
-  // Parse request body
+  // Parse request body — expects { messages: [{ role, content }] }
   let messages;
   try {
     const body = await req.json();
@@ -69,40 +68,54 @@ export default async function (req) {
     });
   }
 
-  // Call Anthropic Messages API via raw fetch (FUNC-02, D-01) — no npm SDK
-  let anthropicResponse;
+  // Map Anthropic-style messages to Gemini contents format.
+  // Anthropic: { role: "user"|"assistant", content: "..." }
+  // Gemini:    { role: "user"|"model",     parts: [{ text: "..." }] }
+  const contents = messages.map(msg => ({
+    role: msg.role === 'assistant' ? 'model' : 'user',
+    parts: [{ text: msg.content }]
+  }));
+
+  // Call Gemini generateContent API via raw fetch — no npm SDK required
+  const model = 'gemini-2.0-flash';
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+  let geminiResponse;
   try {
-    anthropicResponse = await fetch('https://api.anthropic.com/v1/messages', {
+    geminiResponse = await fetch(url, {
       method: 'POST',
-      headers: {
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'content-type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 500,
-        system: SYSTEM_PROMPT,
-        messages
+        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        contents,
+        generationConfig: { maxOutputTokens: 500 }
       })
     });
   } catch (err) {
-    return new Response(JSON.stringify({ error: 'Failed to reach Anthropic API' }), {
+    return new Response(JSON.stringify({ error: 'Failed to reach Gemini API' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', ...corsHeaders() }
     });
   }
 
-  if (!anthropicResponse.ok) {
-    return new Response(JSON.stringify({ error: 'Anthropic API error' }), {
-      status: 500,
+  if (!geminiResponse.ok) {
+    const errText = await geminiResponse.text().catch(() => '');
+    return new Response(JSON.stringify({ error: 'Gemini API error', detail: errText }), {
+      status: 502,
       headers: { 'Content-Type': 'application/json', ...corsHeaders() }
     });
   }
 
-  // Extract reply from Anthropic response shape: content[0].text
-  const data = await anthropicResponse.json();
-  const reply = data.content[0].text;
+  // Extract reply from Gemini response shape: candidates[0].content.parts[0].text
+  const data = await geminiResponse.json();
+  const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
+
+  if (!reply) {
+    return new Response(JSON.stringify({ error: 'No reply from Gemini' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json', ...corsHeaders() }
+    });
+  }
 
   return new Response(JSON.stringify({ reply }), {
     status: 200,
