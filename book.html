@@ -321,18 +321,12 @@
             chatInput.value = '';
 
             try {
-                // Call Anthropic API
-                const response = await fetch('https://api.anthropic.com/v1/messages', {
+                const response = await fetch('/.netlify/functions/chat', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'x-api-key': 'your-api-key-here',
-                        'anthropic-version': '2023-06-01'
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        model: 'claude-sonnet-4-20250514',
-                        max_tokens: 1024,
-                        system: "You are a helpful assistant on Nathan Rubin's personal portfolio website. Nathan is a student athlete at UMass Boston, a children's book author of 'Chasing a Dream', a writer, poet, and community leader from Boston, MA. Help visitors learn about Nathan and answer their questions in a warm and friendly way.",
                         messages: conversationHistory
                     })
                 });
@@ -348,7 +342,7 @@
                 }
 
                 const data = await response.json();
-                const assistantMessage = data.content[0].text;
+                const assistantMessage = data.reply;
 
                 // Add assistant message
                 removeTypingIndicator();
