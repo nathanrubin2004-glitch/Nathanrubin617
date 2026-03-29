@@ -23,8 +23,8 @@
 ### Netlify Function
 
 - [ ] **FUNC-01**: A Netlify Function exists at netlify/functions/chat.js
-- [ ] **FUNC-02**: The function calls the Anthropic API using raw fetch (no npm packages needed)
-- [ ] **FUNC-03**: The function reads the API key from the ANTHROPIC_API_KEY environment variable (never exposed to client)
+- [ ] **FUNC-02**: The function calls the Google Gemini API using raw fetch (no npm packages needed)
+- [ ] **FUNC-03**: The function reads the API key from the GEMINI_API_KEY environment variable (never exposed to client)
 - [ ] **FUNC-04**: The system prompt — containing Nathan's bio, book, and basketball context — lives server-side only in the function
 - [ ] **FUNC-05**: The system prompt instructs the assistant to redirect off-topic questions back to Nathan-related topics
 - [ ] **FUNC-06**: The function handles OPTIONS preflight requests with a 200 response
