@@ -1,0 +1,123 @@
+# Requirements: Nathan Rubin Portfolio Site
+
+**Defined:** 2026-03-28
+**Core Value:** Visitors can quickly learn who Nathan Rubin is and engage with his story through a clean, fast, mobile-friendly static site with an AI assistant as a personal guide.
+
+## v1 Requirements
+
+### Site Structure
+
+- [ ] **SITE-01**: Visitor can access the home and about sections at index.html
+- [ ] **SITE-02**: Visitor can access the book, events, reviews, and purchase sections at book.html
+- [ ] **SITE-03**: Visitor can access the basketball section at basketball.html
+- [ ] **SITE-04**: Visitor can access the contact form at contact.html
+- [ ] **SITE-05**: All existing page content, styles, and images are preserved exactly as they appear in the current index.html
+
+### Navigation
+
+- [ ] **NAV-01**: Visitor can navigate to all 4 pages from the nav bar on any page
+- [ ] **NAV-02**: Nav bar links use file-based hrefs (index.html, book.html, etc.) not anchor links (#section)
+- [ ] **NAV-03**: Nav bar is present and functional on all 4 pages
+- [ ] **NAV-04**: Nav bar works correctly on mobile
+
+### Netlify Function
+
+- [ ] **FUNC-01**: A Netlify Function exists at netlify/functions/chat.js
+- [ ] **FUNC-02**: The function calls the Anthropic API using raw fetch (no npm packages needed)
+- [ ] **FUNC-03**: The function reads the API key from the ANTHROPIC_API_KEY environment variable (never exposed to client)
+- [ ] **FUNC-04**: The system prompt — containing Nathan's bio, book, and basketball context — lives server-side only in the function
+- [ ] **FUNC-05**: The system prompt instructs the assistant to redirect off-topic questions back to Nathan-related topics
+- [ ] **FUNC-06**: The function handles OPTIONS preflight requests with a 200 response
+- [ ] **FUNC-07**: The function caps max_tokens at 500 to stay within the 10-second Netlify free-tier timeout
+
+### Chat Widget
+
+- [ ] **CHAT-01**: A floating chat bubble is visible in the bottom-right corner on all 4 pages
+- [ ] **CHAT-02**: Visitor can click the bubble to open a chat panel
+- [ ] **CHAT-03**: Visitor can click a close button to dismiss the panel at any time
+- [ ] **CHAT-04**: The chat panel shows a warm greeting message when first opened
+- [ ] **CHAT-05**: The chat panel shows 3 starter question chips below the greeting (e.g., "Tell me about his book", "Basketball career", "How to contact him")
+- [ ] **CHAT-06**: Visitor can type a message and send it by clicking the send button or pressing Enter
+- [ ] **CHAT-07**: The send button is disabled and the input is locked while awaiting an API response
+- [ ] **CHAT-08**: A loading/typing indicator is visible while the assistant is generating a response
+- [ ] **CHAT-09**: The assistant's reply appears as a distinct message bubble
+- [ ] **CHAT-10**: User messages and assistant messages are visually distinct (different alignment/color)
+- [ ] **CHAT-11**: The chat panel auto-scrolls to the latest message after each exchange
+- [ ] **CHAT-12**: All messages from the current session remain visible while the panel is open
+- [ ] **CHAT-13**: A graceful inline error message appears if the API call fails ("Something went wrong — try again")
+- [ ] **CHAT-14**: The chat panel opens and closes with a smooth CSS animation
+- [ ] **CHAT-15**: The widget logic lives in a shared chat.js file loaded by all 4 pages (not duplicated inline)
+- [ ] **CHAT-16**: The widget uses the site's blue color scheme (#3b82f6) for assistant bubbles and the send button
+- [ ] **CHAT-17**: The chat panel displays full-width on mobile screens
+- [ ] **CHAT-18**: The widget respects iOS safe-area insets so it does not overlap the browser chrome
+
+## v2 Requirements
+
+### Analytics & Quality
+
+- **OPT-01**: Auto-open widget after 30 seconds on first visit — risky UX, validate with analytics first
+- **OPT-02**: Full keyboard tab/focus accessibility audit
+- **OPT-03**: Conversation feedback (thumbs up/down) — needs a backend to be meaningful
+
+## Out of Scope
+
+| Feature | Reason |
+|---------|--------|
+| Persistent cross-session chat history | Requires a database; PROJECT.md explicitly excludes it |
+| User authentication or named sessions | Incompatible with a pure static site |
+| Streaming character-by-character responses | Adds significant complexity to both function and frontend; full response is acceptable |
+| Voice input | Web Speech API is inconsistent; overkill for a portfolio context |
+| Dark mode toggle inside widget | Tailwind CDN does not support dark: variants without a build step |
+| npm, build tools, or frameworks | Site must remain zero-dependency static HTML |
+| Additional pages beyond the 4 specified | Out of scope per PROJECT.md |
+| Human handoff / live operator | Incompatible with static site; contact page handles this |
+
+## Traceability
+
+Updated during roadmap creation.
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| SITE-01 | Phase 2 | Pending |
+| SITE-02 | Phase 2 | Pending |
+| SITE-03 | Phase 2 | Pending |
+| SITE-04 | Phase 2 | Pending |
+| SITE-05 | Phase 2 | Pending |
+| NAV-01 | Phase 2 | Pending |
+| NAV-02 | Phase 2 | Pending |
+| NAV-03 | Phase 2 | Pending |
+| NAV-04 | Phase 2 | Pending |
+| FUNC-01 | Phase 1 | Pending |
+| FUNC-02 | Phase 1 | Pending |
+| FUNC-03 | Phase 1 | Pending |
+| FUNC-04 | Phase 1 | Pending |
+| FUNC-05 | Phase 1 | Pending |
+| FUNC-06 | Phase 1 | Pending |
+| FUNC-07 | Phase 1 | Pending |
+| CHAT-01 | Phase 3 | Pending |
+| CHAT-02 | Phase 3 | Pending |
+| CHAT-03 | Phase 3 | Pending |
+| CHAT-04 | Phase 3 | Pending |
+| CHAT-05 | Phase 3 | Pending |
+| CHAT-06 | Phase 3 | Pending |
+| CHAT-07 | Phase 3 | Pending |
+| CHAT-08 | Phase 3 | Pending |
+| CHAT-09 | Phase 3 | Pending |
+| CHAT-10 | Phase 3 | Pending |
+| CHAT-11 | Phase 3 | Pending |
+| CHAT-12 | Phase 3 | Pending |
+| CHAT-13 | Phase 3 | Pending |
+| CHAT-14 | Phase 3 | Pending |
+| CHAT-15 | Phase 3 | Pending |
+| CHAT-16 | Phase 3 | Pending |
+| CHAT-17 | Phase 3 | Pending |
+| CHAT-18 | Phase 3 | Pending |
+
+**Coverage:**
+- v1 requirements: 29 total
+- Mapped to phases: 29
+- Unmapped: 0 ✓
+
+---
+*Requirements defined: 2026-03-28*
+*Last updated: 2026-03-28 after initial definition*
