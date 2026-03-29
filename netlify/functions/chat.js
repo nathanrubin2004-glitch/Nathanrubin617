@@ -77,7 +77,7 @@ export default async function (req) {
   }));
 
   // Call Gemini generateContent API via raw fetch — no npm SDK required
-  const model = 'gemini-2.0-flash';
+  const model = 'gemini-2.5-flash';
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
   let geminiResponse;
