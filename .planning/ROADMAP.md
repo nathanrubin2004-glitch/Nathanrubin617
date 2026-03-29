@@ -12,7 +12,7 @@ Starting from a single monolithic index.html, this project builds outward in fou
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Netlify Function** - API proxy exists, accepts messages, returns replies with API key secured server-side
+- [x] **Phase 1: Netlify Function** - API proxy exists, accepts messages, returns replies with API key secured server-side
 - [ ] **Phase 2: Page Split & Navigation** - Four separate HTML pages with working nav, all content preserved
 - [ ] **Phase 3: Chat Widget** - Floating chat bubble live on all four pages, connected to the API
 - [ ] **Phase 4: Polish & Launch** - Starter chips, animation, and end-to-end production validation
@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 1 plan
 
 Plans:
-- [ ] 01-01-PLAN.md — Create Netlify Function chat endpoint with config files and deploy verification
+- [x] 01-01-PLAN.md — Create Netlify Function chat endpoint with config files and deploy verification
 
 ### Phase 2: Page Split & Navigation
 **Goal**: Visitors can navigate a four-page site where all original content, images, and styles from the current index.html are preserved exactly
@@ -76,7 +76,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Netlify Function | 0/1 | In progress (checkpoint Task 3) | - |
+| 1. Netlify Function | 1/1 | Complete | 2026-03-29 |
 | 2. Page Split & Navigation | 0/? | Not started | - |
 | 3. Chat Widget | 0/? | Not started | - |
 | 4. Polish & Launch | 0/? | Not started | - |

@@ -24,11 +24,11 @@ decisions:
 metrics:
   duration: "~5 minutes"
   completed: "2026-03-29"
-  tasks_completed: 2
+  tasks_completed: 3
   tasks_total: 3
   files_created: 3
   files_modified: 0
-status: checkpoint-pending
+status: complete
 ---
 
 # Phase 01 Plan 01: Netlify Function Chat Endpoint Summary
@@ -39,14 +39,14 @@ Serverless chat proxy at `netlify/functions/chat.js` using ESM modern handler wi
 
 ## What Was Built
 
-Tasks 1 and 2 are complete. Task 3 (deploy verification) is a checkpoint awaiting human action.
+All 3 tasks are complete. Task 3 (deploy to Netlify and verify live endpoint) was approved by the user after successful curl testing on the live Netlify deployment.
 
-### Task 1: Config files (commit ba46f99)
+### Task 1: Config files (commit d166a42)
 
 - `package.json` with `"type": "module"` — signals ESM to Node.js so `chat.js` (not `.mjs`) is treated as ESM
 - `netlify.toml` with `directory = "netlify/functions"` — explicit Netlify Functions directory config
 
-### Task 2: Netlify Function (commit 1d96bfc)
+### Task 2: Netlify Function (commit 461b5e7)
 
 `netlify/functions/chat.js` — a complete serverless endpoint implementing:
 
@@ -78,9 +78,15 @@ Tasks 1 and 2 are complete. Task 3 (deploy verification) is a checkpoint awaitin
 
 None — the function is fully implemented. The only pending item is live deployment verification (Task 3 checkpoint).
 
-## Checkpoint Status
+## Deployment Verification (Task 3 — Human-Approved)
 
-Task 3 is `type="checkpoint:human-verify"` — requires push to GitHub, setting ANTHROPIC_API_KEY in Netlify UI, and curl verification of the live endpoint.
+Live endpoint on Netlify was verified by the user:
+- OPTIONS preflight: HTTP 200 with Access-Control-Allow-Origin header
+- POST with messages array: HTTP 200 with `{ reply: "..." }` containing Nathan-related content
+- POST with empty body: HTTP 400 with `{ error: "messages array is required" }`
+- No ANTHROPIC_API_KEY visible in browser DevTools network tab
+
+All success criteria met. Plan complete.
 
 ## Key Decisions Made
 
