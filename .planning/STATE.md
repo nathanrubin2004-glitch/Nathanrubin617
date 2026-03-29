@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: verifying
-stopped_at: "Completed 03-01-PLAN.md: mobile CSS layout and iOS safe-area insets"
-last_updated: "2026-03-29T22:43:39.420Z"
+stopped_at: "Completed 03-02-PLAN.md: chat widget JS extraction into shared chat.js"
+last_updated: "2026-03-29T22:45:50.532Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 4
@@ -55,6 +55,7 @@ Progress: [##░░░░░░░░] 25%
 | Phase 02 P01 | 10 | 2 tasks | 5 files |
 | Phase 02 P02 | 5 | 2 tasks | 0 files |
 | Phase 03 P01 | 1 | 2 tasks | 5 files |
+| Phase 03 P02 | 203 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -75,6 +76,8 @@ Recent decisions affecting current work:
 - [Phase 03-01]: Mobile chat panel is true full-width (width:100%, left:0, right:0) per context spec D-05
 - [Phase 03-01]: iOS safe-area insets applied via env(safe-area-inset-bottom) on bubble and input padding-bottom (D-06)
 - [Phase 03-01]: viewport-fit=cover added to all 4 pages to activate iOS env() variables (D-07)
+- [Phase 03]: Shared chat.js in project root loaded via script src — no DOMContentLoaded wrapper needed since script placed after widget HTML
+- [Phase 03]: Single canonical error message in both catch paths: 'Something went wrong — try again' (CHAT-13)
 
 ### Pending Todos
 
@@ -87,6 +90,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T22:43:39.415Z
-Stopped at: Completed 03-01-PLAN.md: mobile CSS layout and iOS safe-area insets
+Last session: 2026-03-29T22:45:50.527Z
+Stopped at: Completed 03-02-PLAN.md: chat widget JS extraction into shared chat.js
 Resume file: None

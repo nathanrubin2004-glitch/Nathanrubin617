@@ -33,20 +33,20 @@
 ### Chat Widget
 
 - [x] **CHAT-01**: A floating chat bubble is visible in the bottom-right corner on all 4 pages
-- [ ] **CHAT-02**: Visitor can click the bubble to open a chat panel
-- [ ] **CHAT-03**: Visitor can click a close button to dismiss the panel at any time
-- [ ] **CHAT-04**: The chat panel shows a warm greeting message when first opened
+- [x] **CHAT-02**: Visitor can click the bubble to open a chat panel
+- [x] **CHAT-03**: Visitor can click a close button to dismiss the panel at any time
+- [x] **CHAT-04**: The chat panel shows a warm greeting message when first opened
 - [ ] **CHAT-05**: The chat panel shows 3 starter question chips below the greeting (e.g., "Tell me about his book", "Basketball career", "How to contact him")
-- [ ] **CHAT-06**: Visitor can type a message and send it by clicking the send button or pressing Enter
-- [ ] **CHAT-07**: The send button is disabled and the input is locked while awaiting an API response
-- [ ] **CHAT-08**: A loading/typing indicator is visible while the assistant is generating a response
-- [ ] **CHAT-09**: The assistant's reply appears as a distinct message bubble
-- [ ] **CHAT-10**: User messages and assistant messages are visually distinct (different alignment/color)
-- [ ] **CHAT-11**: The chat panel auto-scrolls to the latest message after each exchange
-- [ ] **CHAT-12**: All messages from the current session remain visible while the panel is open
-- [ ] **CHAT-13**: A graceful inline error message appears if the API call fails ("Something went wrong — try again")
+- [x] **CHAT-06**: Visitor can type a message and send it by clicking the send button or pressing Enter
+- [x] **CHAT-07**: The send button is disabled and the input is locked while awaiting an API response
+- [x] **CHAT-08**: A loading/typing indicator is visible while the assistant is generating a response
+- [x] **CHAT-09**: The assistant's reply appears as a distinct message bubble
+- [x] **CHAT-10**: User messages and assistant messages are visually distinct (different alignment/color)
+- [x] **CHAT-11**: The chat panel auto-scrolls to the latest message after each exchange
+- [x] **CHAT-12**: All messages from the current session remain visible while the panel is open
+- [x] **CHAT-13**: A graceful inline error message appears if the API call fails ("Something went wrong — try again")
 - [ ] **CHAT-14**: The chat panel opens and closes with a smooth CSS animation
-- [ ] **CHAT-15**: The widget logic lives in a shared chat.js file loaded by all 4 pages (not duplicated inline)
+- [x] **CHAT-15**: The widget logic lives in a shared chat.js file loaded by all 4 pages (not duplicated inline)
 - [x] **CHAT-16**: The widget uses the site's blue color scheme (#3b82f6) for assistant bubbles and the send button
 - [x] **CHAT-17**: The chat panel displays full-width on mobile screens
 - [x] **CHAT-18**: The widget respects iOS safe-area insets so it does not overlap the browser chrome
@@ -93,18 +93,18 @@
 | NAV-03 | Phase 2 | Complete |
 | NAV-04 | Phase 2 | Complete |
 | CHAT-01 | Phase 3 | Complete |
-| CHAT-02 | Phase 3 | Pending |
-| CHAT-03 | Phase 3 | Pending |
-| CHAT-04 | Phase 3 | Pending |
-| CHAT-06 | Phase 3 | Pending |
-| CHAT-07 | Phase 3 | Pending |
-| CHAT-08 | Phase 3 | Pending |
-| CHAT-09 | Phase 3 | Pending |
-| CHAT-10 | Phase 3 | Pending |
-| CHAT-11 | Phase 3 | Pending |
-| CHAT-12 | Phase 3 | Pending |
-| CHAT-13 | Phase 3 | Pending |
-| CHAT-15 | Phase 3 | Pending |
+| CHAT-02 | Phase 3 | Complete |
+| CHAT-03 | Phase 3 | Complete |
+| CHAT-04 | Phase 3 | Complete |
+| CHAT-06 | Phase 3 | Complete |
+| CHAT-07 | Phase 3 | Complete |
+| CHAT-08 | Phase 3 | Complete |
+| CHAT-09 | Phase 3 | Complete |
+| CHAT-10 | Phase 3 | Complete |
+| CHAT-11 | Phase 3 | Complete |
+| CHAT-12 | Phase 3 | Complete |
+| CHAT-13 | Phase 3 | Complete |
+| CHAT-15 | Phase 3 | Complete |
 | CHAT-16 | Phase 3 | Complete |
 | CHAT-17 | Phase 3 | Complete |
 | CHAT-18 | Phase 3 | Complete |
