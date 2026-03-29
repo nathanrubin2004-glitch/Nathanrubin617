@@ -12,21 +12,24 @@ Visitors can quickly learn who Nathan Rubin is and engage with his story through
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Site is split into 4 separate HTML pages: index.html (home + about), book.html, basketball.html, contact.html — *Validated in Phase 2: Page Split & Navigation*
+- [x] Navigation bar on every page has working links to all 4 pages — *Validated in Phase 2*
+- [x] All existing content, styles, and images are preserved exactly — *Validated in Phase 2*
+- [x] All image URLs (Imgur-hosted) remain unchanged — *Validated in Phase 2*
+- [x] Site works correctly on mobile — *Validated in Phase 2*
+- [x] AI chat widget (floating bubble, bottom-right) appears on every page — *Validated in Phase 3: Chat Widget*
+- [x] Chat widget is powered by Anthropic API via a Netlify Function — *Validated in Phase 3*
+- [x] Chat widget matches the site's blue color scheme (#3b82f6) — *Validated in Phase 3*
+- [x] Chat panel is full-width on mobile with iOS safe-area insets — *Validated in Phase 3*
+- [x] Widget logic lives in shared chat.js (not duplicated inline) — *Validated in Phase 3*
 
 ### Active
 
-- [ ] Site is split into 4 separate HTML pages: index.html (home + about), book.html, basketball.html, contact.html
-- [ ] Navigation bar on every page has working links to all 4 pages
-- [ ] AI chat widget (floating bubble, bottom-right) appears on every page
-- [ ] Chat widget is powered by Anthropic API (claude-sonnet-4-20250514) via a Netlify Function
 - [ ] Netlify Function lives at netlify/functions/chat.js and uses ANTHROPIC_API_KEY env var
 - [ ] Chat assistant is primed with Nathan's bio, book, and basketball content from the site
 - [ ] Chat assistant redirects off-topic questions back to Nathan-related topics
-- [ ] Chat widget matches the site's blue color scheme (#3b82f6)
-- [ ] All existing content, styles, and images are preserved exactly
-- [ ] All image URLs (Imgur-hosted) remain unchanged
-- [ ] Site works correctly on mobile
+- [ ] 3 starter question chips appear below greeting
+- [ ] Chat panel opens/closes with smooth CSS animation
 
 ### Out of Scope
 
@@ -42,7 +45,7 @@ Visitors can quickly learn who Nathan Rubin is and engage with his story through
 - **Deployment:** Netlify auto-deploys from GitHub repo (Nathanrubin617) on push
 - **Domain:** nathanrubin617.com (custom domain configured in Netlify)
 - **Images:** All hosted on Imgur — URLs must not be changed
-- **Current state:** Single index.html containing all content (home, about, book, basketball, contact)
+- **Current state:** Phase 3 complete — 4-page site with working AI chat widget on all pages, deployed to Netlify
 - **Color scheme:** Blue (#3b82f6), glassmorphism nav
 - **API security:** Anthropic API key stored as Netlify environment variable ANTHROPIC_API_KEY; proxied through a Netlify Function to avoid client-side exposure
 
@@ -81,4 +84,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-29 — Phase 2 complete (CSS extraction, active nav, content fidelity verified)*
+*Last updated: 2026-03-29 — Phase 3 complete (chat widget live on all 4 pages, mobile-responsive, iOS safe-area, shared chat.js)*
