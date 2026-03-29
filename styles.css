@@ -34,7 +34,7 @@ body {
 /* Chat Widget Styles */
 .chat-bubble {
     position: fixed;
-    bottom: 2rem;
+    bottom: calc(2rem + env(safe-area-inset-bottom));
     right: 2rem;
     z-index: 40;
     width: 60px;
@@ -204,7 +204,10 @@ body {
 
 .chat-input-container {
     border-top: 1px solid #e5e7eb;
-    padding: 1rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background: white;
     display: flex;
     gap: 0.75rem;
@@ -250,10 +253,13 @@ body {
 
 @media (max-width: 640px) {
     .chat-window {
-        max-width: calc(100% - 2rem);
-        height: 500px;
-        bottom: 6rem;
-        right: 1rem;
+        width: 100%;
+        max-width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 70vh;
+        border-radius: 12px 12px 0 0;
     }
 
     .message-bubble {
