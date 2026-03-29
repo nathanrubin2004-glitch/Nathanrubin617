@@ -32,7 +32,7 @@
 
 ### Chat Widget
 
-- [ ] **CHAT-01**: A floating chat bubble is visible in the bottom-right corner on all 4 pages
+- [x] **CHAT-01**: A floating chat bubble is visible in the bottom-right corner on all 4 pages
 - [ ] **CHAT-02**: Visitor can click the bubble to open a chat panel
 - [ ] **CHAT-03**: Visitor can click a close button to dismiss the panel at any time
 - [ ] **CHAT-04**: The chat panel shows a warm greeting message when first opened
@@ -47,9 +47,9 @@
 - [ ] **CHAT-13**: A graceful inline error message appears if the API call fails ("Something went wrong — try again")
 - [ ] **CHAT-14**: The chat panel opens and closes with a smooth CSS animation
 - [ ] **CHAT-15**: The widget logic lives in a shared chat.js file loaded by all 4 pages (not duplicated inline)
-- [ ] **CHAT-16**: The widget uses the site's blue color scheme (#3b82f6) for assistant bubbles and the send button
-- [ ] **CHAT-17**: The chat panel displays full-width on mobile screens
-- [ ] **CHAT-18**: The widget respects iOS safe-area insets so it does not overlap the browser chrome
+- [x] **CHAT-16**: The widget uses the site's blue color scheme (#3b82f6) for assistant bubbles and the send button
+- [x] **CHAT-17**: The chat panel displays full-width on mobile screens
+- [x] **CHAT-18**: The widget respects iOS safe-area insets so it does not overlap the browser chrome
 
 ## v2 Requirements
 
@@ -92,7 +92,7 @@
 | NAV-02 | Phase 2 | Complete |
 | NAV-03 | Phase 2 | Complete |
 | NAV-04 | Phase 2 | Complete |
-| CHAT-01 | Phase 3 | Pending |
+| CHAT-01 | Phase 3 | Complete |
 | CHAT-02 | Phase 3 | Pending |
 | CHAT-03 | Phase 3 | Pending |
 | CHAT-04 | Phase 3 | Pending |
@@ -105,9 +105,9 @@
 | CHAT-12 | Phase 3 | Pending |
 | CHAT-13 | Phase 3 | Pending |
 | CHAT-15 | Phase 3 | Pending |
-| CHAT-16 | Phase 3 | Pending |
-| CHAT-17 | Phase 3 | Pending |
-| CHAT-18 | Phase 3 | Pending |
+| CHAT-16 | Phase 3 | Complete |
+| CHAT-17 | Phase 3 | Complete |
+| CHAT-18 | Phase 3 | Complete |
 | CHAT-05 | Phase 4 | Pending |
 | CHAT-14 | Phase 4 | Pending |
 
