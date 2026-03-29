@@ -60,8 +60,13 @@ Plans:
   3. User and assistant messages are visually distinct; all messages from the current session remain visible while the panel is open
   4. A loading indicator appears while the API responds; an inline error message appears if the call fails
   5. The chat panel is full-width on mobile and does not overlap iOS browser chrome
-**Plans**: TBD
+**Plans:** 3 plans
 **UI hint**: yes
+
+Plans:
+- [ ] 03-01-PLAN.md — CSS mobile full-width layout, iOS safe-area insets, and viewport meta tags
+- [ ] 03-02-PLAN.md — Extract shared chat.js with typing indicator, greeting, and error handling
+- [ ] 03-03-PLAN.md — Automated verification and human end-to-end testing
 
 ### Phase 4: Polish & Launch
 **Goal**: The experience feels polished and the production deployment is fully validated end-to-end
@@ -82,5 +87,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. Netlify Function | 1/1 | Complete | 2026-03-29 |
 | 2. Page Split & Navigation | 2/2 | Complete   | 2026-03-29 |
-| 3. Chat Widget | 0/? | Not started | - |
+| 3. Chat Widget | 0/3 | Planning complete | - |
 | 4. Polish & Launch | 0/? | Not started | - |
