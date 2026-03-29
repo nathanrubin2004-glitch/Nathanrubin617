@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Phase 2 UI-SPEC approved
-last_updated: "2026-03-29T02:33:23.580Z"
+status: executing
+stopped_at: "Completed 02-01-PLAN.md: CSS extraction and active nav indicators"
+last_updated: "2026-03-29T02:47:20.857Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 1
-  completed_plans: 1
+  total_plans: 3
+  completed_plans: 2
   percent: 25
 ---
 
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-28)
 
 **Core value:** Visitors can quickly learn who Nathan Rubin is and engage with his story through a clean, fast, mobile-friendly static site with an AI assistant as a personal guide.
-**Current focus:** Phase 01 — netlify-function
+**Current focus:** Phase 02 — page-split-navigation
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
-Status: Phase 01 done, ready for Phase 02 (Page Split & Navigation)
+Phase: 02 (page-split-navigation) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
 Last activity: 2026-03-29
 
 Progress: [##░░░░░░░░] 25%
@@ -52,6 +52,7 @@ Progress: [##░░░░░░░░] 25%
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 02 P01 | 10 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,8 @@ Recent decisions affecting current work:
 - [01-01]: Use raw fetch to Anthropic API (no npm SDK) — satisfies D-01/D-02 zero-dependency constraint
 - [01-01]: Root package.json with "type":"module" signals ESM without any npm install
 - [01-01]: CORS headers included defensively on all responses for local dev compatibility
+- [Phase 02-01]: Used basketball.html as canonical CSS source (no hero-specific rules)
+- [Phase 02-01]: Active nav indicators hardcoded per page (no JS detection)
 
 ### Pending Todos
 
@@ -78,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T02:33:23.568Z
-Stopped at: Phase 2 UI-SPEC approved
-Resume file: .planning/phases/02-page-split-navigation/02-UI-SPEC.md
+Last session: 2026-03-29T02:47:20.853Z
+Stopped at: Completed 02-01-PLAN.md: CSS extraction and active nav indicators
+Resume file: None
