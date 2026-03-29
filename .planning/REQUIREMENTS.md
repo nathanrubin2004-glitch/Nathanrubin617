@@ -74,10 +74,15 @@
 
 ## Traceability
 
-Updated during roadmap creation.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
+| FUNC-01 | Phase 1 | Pending |
+| FUNC-02 | Phase 1 | Pending |
+| FUNC-03 | Phase 1 | Pending |
+| FUNC-04 | Phase 1 | Pending |
+| FUNC-05 | Phase 1 | Pending |
+| FUNC-06 | Phase 1 | Pending |
+| FUNC-07 | Phase 1 | Pending |
 | SITE-01 | Phase 2 | Pending |
 | SITE-02 | Phase 2 | Pending |
 | SITE-03 | Phase 2 | Pending |
@@ -87,18 +92,10 @@ Updated during roadmap creation.
 | NAV-02 | Phase 2 | Pending |
 | NAV-03 | Phase 2 | Pending |
 | NAV-04 | Phase 2 | Pending |
-| FUNC-01 | Phase 1 | Pending |
-| FUNC-02 | Phase 1 | Pending |
-| FUNC-03 | Phase 1 | Pending |
-| FUNC-04 | Phase 1 | Pending |
-| FUNC-05 | Phase 1 | Pending |
-| FUNC-06 | Phase 1 | Pending |
-| FUNC-07 | Phase 1 | Pending |
 | CHAT-01 | Phase 3 | Pending |
 | CHAT-02 | Phase 3 | Pending |
 | CHAT-03 | Phase 3 | Pending |
 | CHAT-04 | Phase 3 | Pending |
-| CHAT-05 | Phase 3 | Pending |
 | CHAT-06 | Phase 3 | Pending |
 | CHAT-07 | Phase 3 | Pending |
 | CHAT-08 | Phase 3 | Pending |
@@ -107,17 +104,20 @@ Updated during roadmap creation.
 | CHAT-11 | Phase 3 | Pending |
 | CHAT-12 | Phase 3 | Pending |
 | CHAT-13 | Phase 3 | Pending |
-| CHAT-14 | Phase 3 | Pending |
 | CHAT-15 | Phase 3 | Pending |
 | CHAT-16 | Phase 3 | Pending |
 | CHAT-17 | Phase 3 | Pending |
 | CHAT-18 | Phase 3 | Pending |
+| CHAT-05 | Phase 4 | Pending |
+| CHAT-14 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 29 total
-- Mapped to phases: 29
-- Unmapped: 0 ✓
+- v1 requirements: 34 total
+- Mapped to phases: 34
+- Unmapped: 0
+
+Note: Previous count of 29 was incorrect. Actual count is 34 (FUNC: 7, SITE: 5, NAV: 4, CHAT: 18).
 
 ---
 *Requirements defined: 2026-03-28*
-*Last updated: 2026-03-28 after initial definition*
+*Last updated: 2026-03-28 after roadmap creation*
