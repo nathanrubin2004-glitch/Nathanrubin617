@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nathan Rubin - Author & Artist</title>
+    <title>Chasing a Dream - Nathan Rubin</title>
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -43,46 +43,6 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: var(--color-primary-dark);
-        }
-
-        /* Hero Styles */
-        .hero-bg {
-            background-image: url('https://i.imgur.com/hnJz5s5.jpeg');
-            background-size: cover; 
-            background-repeat: no-repeat;
-            background-position: center;
-            position: relative;
-            color: white;
-            z-index: 1;
-        }
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); 
-            border-radius: 0.75rem; 
-            z-index: -1; 
-        }
-
-        .social-icons-container {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 1.5rem;
-            z-index: 2;
-            display: flex;
-            gap: 0.75rem;
-        }
-        .social-icon:hover {
-            transform: scale(1.1);
-        }
-        .bottom-right-logo {
-            position: absolute;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            z-index: 2;
         }
 
         /* Chat Widget Styles */
@@ -138,6 +98,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: none;
         }
 
         .chat-header h3 {
@@ -158,6 +119,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .chat-close:hover {
+            transform: scale(1.2);
         }
 
         .chat-messages {
@@ -173,6 +139,18 @@
         .chat-message {
             display: flex;
             gap: 0.75rem;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .message-bubble {
@@ -204,6 +182,40 @@
             border-bottom-left-radius: 4px;
         }
 
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 0.75rem 1rem;
+            background: #e5e7eb;
+            border-radius: 18px;
+            width: fit-content;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #9ca3af;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
         .chat-input-container {
             border-top: 1px solid #e5e7eb;
             padding: 1rem;
@@ -219,6 +231,7 @@
             border-radius: 24px;
             font-size: 0.9rem;
             font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s;
         }
 
         .chat-input:focus {
@@ -237,6 +250,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background 0.2s;
         }
 
         .chat-send:hover {
@@ -296,69 +310,149 @@
 
     <main class="max-w-7xl mx-auto px-6 mt-8">
         
-        <!-- Hero Section -->
-        <section id="hero" class="hero-bg rounded-xl shadow-lg p-10 py-20 md:py-32 text-center mb-12 overflow-hidden">
-            <div class="social-icons-container">
-                <a href="https://instagram.com/nathanrubin24" target="_blank" class="social-icon transition-transform duration-200">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" 
-                         alt="Instagram" class="w-8 h-8 md:w-10 md:h-10">
-                </a>
-                <a href="https://www.linkedin.com/in/nathan-rubin-7a747329a/" target="_blank" class="social-icon transition-transform duration-200">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRokEYt0yyh6uNDKL8uksVLlhZ35laKNQgZ9g&s" 
-                         alt="LinkedIn" class="w-8 h-8 md:w-10 md:h-10">
-                </a>
+        <!-- My Book Section -->
+        <section id="book" class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2">Chasing a Dream</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-8">
+                <div class="md:w-1/3 mb-6 md:mb-0">
+                    <img src="https://i.imgur.com/MEED7S6.jpeg" alt="Book cover" class="rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Chasing a Dream</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Nathan Rubin's debut children's book is a heartfelt story that blends fun, imagination, and important life lessons. Written to inspire confidence, kindness, and self-belief, the book encourages young readers to see the greatness within themselves.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mt-4 mb-2 pt-4 border-t border-gray-200">
+                       Chasing a Dream is meant to be accessible to every child. Look for copies in local libraries, community centers, and youth organizations.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        You can also check for free book-sharing locations using the official <a href="https://littlefreelibrary.org/map/" target="_blank" class="text-blue-500 hover:underline font-semibold">Little Free Library map</a>.
+                    </p>
+                    <a href="#purchase" class="inline-block bg-blue-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
+                        Purchase a Copy
+                    </a>
+                </div>
             </div>
-
-            <div class="bottom-right-logo">
-                <img src="https://i.imgur.com/sAcG2HQ.png" alt="NR Logo" class="h-16 w-auto shadow-xl rounded-full">
-            </div>
-
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 relative z-10">
-                Nathan Rubin
-            </h1>
-            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto relative z-10">
-                Explore my journey as a student athlete, inspiring author, and dedicated storyteller from Boston, MA.
-            </p>
-            <div class="flex justify-center flex-wrap gap-4 relative z-10">
-                <a href="#about" class="bg-blue-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
-                    Start Here If You're New!
-                </a>
-                <a href="book.html" class="bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-blue-800 transition-transform transform hover:scale-105">
-                    Explore My Book
-                </a>
-                <a href="book.html#events" class="bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-gray-300 transition-transform transform hover:scale-105">
-                    Find an Event
-                </a>
+        </section>
+        
+        <!-- Upcoming Events Section -->
+        <section id="events" class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2">Upcoming Events</h2>
+            <div class="bg-gray-100 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+                <p class="text-sm font-bold text-blue-600 mb-2">Winter 2026</p>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Workshop, Reading & Signing</h3>
+                <p class="text-gray-700 mb-4">Join me for a fun, interactive workshop along with a "Chasing a Dream" reading and signing.</p>
+                <a href="#" class="text-sm text-gray-400 cursor-not-allowed">Boston, MA</a>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="bg-white rounded-xl shadow-lg p-8 mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center md:space-x-8">
-                <div class="md:w-1/3 mb-6 md:mb-0">
-                    <img src="https://i.imgur.com/ye3HNgv.png" alt="Profile picture" class="rounded-full w-48 h-48 mx-auto shadow-md object-cover">
+        <!-- Completed Events Section -->
+        <section id="completed-events" class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2">Completed Events</h2>
+            <div class="flex flex-col space-y-8">
+                
+                <!-- NEW EVENT: Mattapan School Tour (February 2026) -->
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md flex flex-col md:flex-row justify-between items-center md:space-x-8">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://i.imgur.com/28kGjtN.jpeg" alt="Nathan reading at Mildred Ave" class="w-64 h-auto rounded-md mb-3"> 
+                        <p class="text-sm font-bold text-gray-600 mb-2">February 2026</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Mattapan School Tour & Reading</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Shared "Chasing a Dream" with the bright minds at Mildred Ave K-8 and Ellison Parks schools in Mattapan. This visit was all about belief and the power of possibility. Big thanks to Jadin Draper, UMass Boston MBK, Boston Reads, and the Office of Black Male Advancement—it truly takes a village!
+                        </p>
+                        <p class="text-sm text-gray-600">Mattapan, Boston, MA</p>
+                    </div>
+                    <div class="md:w-1/2 flex flex-col items-center space-y-4">
+                        <img src="https://i.imgur.com/bVwdW5V.jpeg" alt="Event Photo" class="rounded-lg shadow-lg w-10/12">
+                        <img src="https://i.imgur.com/nuZ2lwN.jpeg" alt="Event Photo" class="rounded-lg shadow-lg w-10/12">
+                    </div>
                 </div>
-                <div class="md:w-2/3">
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                        Nathan Rubin is a writer, athlete, economist, and storyteller with a passion for inspiring the next generation. When he's not on the basketball court, he's pouring his heart into writing—whether it's poetry, reflections on life, or stories that uplift children. Nathan currently studies Economics, Community Relations, and Diaspora at the Liberal Arts College of the University of Massachusetts - Boston          
-                    </p>
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                        His debut children's book was created with one goal in mind: to spark imagination while teaching lessons of confidence, kindness, and self-belief. Nathan believes stories have the power to plant seeds of strength and joy in young readers, helping them see themselves as heroes in their own lives.
-                    </p>
-                    <p class="text-gray-700 leading-relaxed mb-6">
-                        Through his book, Nathan hopes to not only entertain but also connect with kids and families, creating moments of laughter, learning, and inspiration
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="https://sites.google.com/view/nathanrubinportfolio/home" target="_blank" class="inline-block bg-gray-200 text-gray-800 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-300 transition-transform transform hover:scale-105">
-                            View My Publications
-                        </a>
-                        <a href="https://allpoetry.com/NathanRubin" target="_blank" class="inline-block bg-gray-200 text-gray-800 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-300 transition-transform transform hover:scale-105">
-                            View My Poetry Portfolio
-                        </a>
+
+                <!-- Kilmer Elementary -->
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md flex flex-col md:flex-row justify-between items-center md:space-x-8">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://i.imgur.com/GFf1Obh.jpeg" alt="Nathan reading" class="w-64 h-auto rounded-md mb-3"> 
+                        <p class="text-sm font-bold text-gray-600 mb-2">October 2025</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">School Reading & Workshop</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">Had an incredible time visiting Kilmer Elementary School for a high-energy reading and signing of "Chasing a Dream." It was a blessing to connect with these young minds!</p>
+                        <p class="text-sm text-gray-600">Kilmer Elementary School, West Roxbury, Boston, MA</p>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <img src="https://i.imgur.com/Mdi5D0j.jpeg" alt="Nathan signing books" class="rounded-lg shadow-lg w-10/12">
+                    </div>
+                </div>
+
+                <!-- Back-2-School Drive -->
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md flex flex-col md:flex-row justify-between items-center md:space-x-8">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://i.imgur.com/vE7tyBu.jpeg" alt="Community event graphic" class="w-64 h-auto rounded-md mb-3"> 
+                        <p class="text-sm font-bold text-gray-600 mb-2">August 2025</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Back-2-School Drive</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            I was proud to sponsor the Back-to-School Drive at the Mildred Community Center, helping kids start the year with the tools and confidence they need.
+                        </p>
+                        <p class="text-sm text-gray-600">Mildred Community Center, Mattapan, MA</p>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <img src="https://i.imgur.com/rY93SCx.jpeg" alt="Nathan with a kid at the Back-2-School drive" class="rounded-lg shadow-lg w-10/12">
+                    </div>
+                </div>
+
+                <!-- SNUG Program -->
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md flex flex-col md:flex-row justify-between items-center md:space-x-8">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://i.imgur.com/TIvy35r.jpeg" alt="Nathan speaking" class="w-64 h-auto rounded-md mb-3"> 
+                        <p class="text-sm font-bold text-gray-600 mb-2">April 2025</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Local Community Talk</h3>
+                        <p class="text-gray-700 mb-4">Delivered a motivational presentation to teens on the significance of collegiate athletics.</p>
+                        <p class="text-sm text-gray-600">SNUG Program, Yonkers YMCA, Yonkers, NY</p>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <img src="https://i.imgur.com/C79Mro6.jpeg" alt="Nathan at SNUG" class="rounded-lg shadow-lg w-10/12">
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2">In The News</h2>
+            <div class="flex flex-col md:flex-row items-center bg-gray-100 p-6 rounded-lg shadow-md">
+                <div class="md:w-1/3 mb-4 md:mb-0">
+                    <div class="bg-blue-800 text-white font-bold p-4 rounded-lg w-32 h-32 flex items-center justify-center mx-auto md:mx-0">
+                        UMass<br>Boston
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Student Athlete Nathan Rubin Debuts Children's Book, "Chasing a Dream"</h3>
+                    <p class="text-gray-700 text-sm italic mb-3">Read the feature article published by UMass Boston.</p>
+                    <a href="https://www.umb.edu/news/recent-news/student-athlete-nathan-rubin-debuts-childrens-book-chasing-a-dream/" target="_blank" class="text-blue-500 hover:underline font-semibold">Read the Article</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-1">⭐ See what others are saying! ⭐</h2>
+            <p class="text-xl text-gray-600 mb-6 border-b-2 border-blue-500 pb-2">Read some reviews on Chasing a Dream!</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md border-t-4 border-blue-500">
+                    <p class="text-gray-700 italic text-lg">"Nathan genuinely cares about helping kids see their own potential... I think this book can have an enormous impact on any child who reads it."</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md border-t-4 border-blue-500">
+                    <p class="text-gray-700 italic text-lg">"Chasing a dream is a book that should be read across all ages... valuable messages of hope, courage, and determination."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Purchase Section -->
+        <section id="purchase" class="bg-white rounded-xl shadow-lg p-8 mb-12 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2 inline-block px-4">Purchase a Copy</h2>
+            <video src="https://i.imgur.com/WLelN9A.mp4" autoplay loop muted class="w-full max-w-sm rounded-lg shadow-lg mb-6 mx-auto"></video>
+            <p class="text-gray-700 mb-6">Ready to inspire the young dreamer in your life?</p>
+            <a href="https://buy.stripe.com/5kQ8wR1pRfD2dxV1wwgYU02" target="_blank" class="inline-block bg-blue-500 text-white font-semibold py-3 px-12 rounded-full shadow-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
+                Buy Now
+            </a>
         </section>
     </main>
 
@@ -411,6 +505,7 @@
             chatWindow.classList.toggle('active');
             if (chatWindow.classList.contains('active')) {
                 chatInput.focus();
+                // Show welcome message if first time opening
                 if (conversationHistory.length === 0) {
                     addAssistantMessage("Hi there! 👋 I'm an AI assistant on Nathan Rubin's personal portfolio website. Feel free to ask me anything about Nathan, his book 'Chasing a Dream', his basketball journey, or anything else! How can I help you today?");
                 }
@@ -451,19 +546,45 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
+        function showTypingIndicator() {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message message-assistant';
+            messageDiv.id = 'typing-indicator';
+            const indicator = document.createElement('div');
+            indicator.className = 'typing-indicator';
+            indicator.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+            messageDiv.appendChild(indicator);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+
         async function sendMessage() {
             const message = chatInput.value.trim();
             if (!message) return;
 
+            // Disable send button and input
             chatSend.disabled = true;
             chatInput.disabled = true;
 
+            // Add user message
             addUserMessage(message);
             conversationHistory.push({ role: 'user', content: message });
 
+            // Show typing indicator
+            showTypingIndicator();
+
+            // Clear input
             chatInput.value = '';
 
             try {
+                // Call Anthropic API
                 const response = await fetch('https://api.anthropic.com/v1/messages', {
                     method: 'POST',
                     headers: {
@@ -482,6 +603,7 @@
                 if (!response.ok) {
                     const error = await response.json();
                     console.error('API Error:', error);
+                    removeTypingIndicator();
                     addAssistantMessage("Sorry, I encountered an error. Please try again later.");
                     chatSend.disabled = false;
                     chatInput.disabled = false;
@@ -491,11 +613,14 @@
                 const data = await response.json();
                 const assistantMessage = data.content[0].text;
 
+                // Add assistant message
+                removeTypingIndicator();
                 addAssistantMessage(assistantMessage);
                 conversationHistory.push({ role: 'assistant', content: assistantMessage });
 
             } catch (error) {
                 console.error('Error:', error);
+                removeTypingIndicator();
                 addAssistantMessage("Sorry, I couldn't reach the server. Please check your connection and try again.");
             } finally {
                 chatSend.disabled = false;
