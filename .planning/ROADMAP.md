@@ -76,7 +76,12 @@ Plans:
   1. Three starter question chips appear below the greeting when the chat panel opens; clicking a chip sends that question
   2. The chat panel opens and closes with a visible CSS animation
   3. No Anthropic API key or system prompt content is visible in browser DevTools network tab during a live chat session on the production Netlify URL
-**Plans**: TBD
+**Plans**: 3/3 plans complete
+
+Plans:
+- [x] 04-01-PLAN.md — Loading screen overlay, hero animation, and back-to-top button
+- [x] 04-02-PLAN.md — Starter chips and CSS animation (CHAT-05, CHAT-14)
+- [x] 04-03-PLAN.md — Automated verification and human end-to-end production testing
 
 ## Progress
 
@@ -88,4 +93,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | 1. Netlify Function | 1/1 | Complete | 2026-03-29 |
 | 2. Page Split & Navigation | 2/2 | Complete   | 2026-03-29 |
 | 3. Chat Widget | 1/3 | In progress | - |
-| 4. Polish & Launch | 1/1 | Complete   | 2026-03-30 |
+| 4. Polish & Launch | 3/3 | Complete   | 2026-03-29 |
