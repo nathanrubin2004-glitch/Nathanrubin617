@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Completed 03-02-PLAN.md: chat widget JS extraction into shared chat.js"
-last_updated: "2026-03-29T23:03:45.752Z"
+stopped_at: "Completed 04-02-PLAN.md: starter chips and CSS animation"
+last_updated: "2026-03-30T00:13:33.732Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 4
-  completed_phases: 3
-  total_plans: 6
-  completed_plans: 6
+  completed_phases: 4
+  total_plans: 7
+  completed_plans: 7
   percent: 25
 ---
 
@@ -56,6 +56,7 @@ Progress: [##░░░░░░░░] 25%
 | Phase 02 P02 | 5 | 2 tasks | 0 files |
 | Phase 03 P01 | 1 | 2 tasks | 5 files |
 | Phase 03 P02 | 203 | 2 tasks | 5 files |
+| Phase 04 P02 | 3 | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -78,6 +79,8 @@ Recent decisions affecting current work:
 - [Phase 03-01]: viewport-fit=cover added to all 4 pages to activate iOS env() variables (D-07)
 - [Phase 03]: Shared chat.js in project root loaded via script src — no DOMContentLoaded wrapper needed since script placed after widget HTML
 - [Phase 03]: Single canonical error message in both catch paths: 'Something went wrong — try again' (CHAT-13)
+- [Phase 04]: CSS opacity/visibility/transform transition for panel animation (CHAT-14) — avoids display:none which blocks CSS transitions
+- [Phase 04]: Chip click pre-fills chatInput.value then calls sendMessage() — reuses existing send logic, no duplication (CHAT-05)
 
 ### Pending Todos
 
@@ -90,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T22:45:50.527Z
-Stopped at: Completed 03-02-PLAN.md: chat widget JS extraction into shared chat.js
+Last session: 2026-03-30T00:13:33.728Z
+Stopped at: Completed 04-02-PLAN.md: starter chips and CSS animation
 Resume file: None
