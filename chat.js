@@ -5,6 +5,7 @@ const chatClose = document.getElementById('chat-close');
 const chatInput = document.getElementById('chat-input');
 const chatSend = document.getElementById('chat-send');
 const chatMessages = document.getElementById('chat-messages');
+const chatChips = document.getElementById('chat-chips');
 
 let conversationHistory = [];
 
@@ -21,6 +22,17 @@ chatBubble.addEventListener('click', () => {
 chatClose.addEventListener('click', () => {
     chatWindow.classList.remove('active');
 });
+
+if (chatChips) {
+    chatChips.querySelectorAll('.chat-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const question = chip.dataset.question;
+            chatChips.style.display = 'none';
+            chatInput.value = question;
+            sendMessage();
+        });
+    });
+}
 
 chatSend.addEventListener('click', sendMessage);
 chatInput.addEventListener('keypress', (e) => {
@@ -69,6 +81,8 @@ function removeTypingIndicator() {
 async function sendMessage() {
     const message = chatInput.value.trim();
     if (!message) return;
+
+    if (chatChips) chatChips.style.display = 'none';
 
     chatSend.disabled = true;
     chatInput.disabled = true;
