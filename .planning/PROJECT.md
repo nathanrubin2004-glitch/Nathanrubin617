@@ -23,13 +23,17 @@ Visitors can quickly learn who Nathan Rubin is and engage with his story through
 - [x] Chat panel is full-width on mobile with iOS safe-area insets — *Validated in Phase 3*
 - [x] Widget logic lives in shared chat.js (not duplicated inline) — *Validated in Phase 3*
 
-### Active
+### Validated (continued)
 
-- [ ] Netlify Function lives at netlify/functions/chat.js and uses ANTHROPIC_API_KEY env var
-- [ ] Chat assistant is primed with Nathan's bio, book, and basketball content from the site
-- [ ] Chat assistant redirects off-topic questions back to Nathan-related topics
-- [ ] 3 starter question chips appear below greeting
-- [ ] Chat panel opens/closes with smooth CSS animation
+- [x] Netlify Function lives at netlify/functions/chat.js and uses ANTHROPIC_API_KEY env var — *Validated in Phase 4: Polish & Launch*
+- [x] Chat assistant is primed with Nathan's bio, book, and basketball content from the site — *Validated in Phase 4*
+- [x] Chat assistant redirects off-topic questions back to Nathan-related topics — *Validated in Phase 4*
+- [x] 3 starter question chips appear below greeting — *Validated in Phase 4 (CHAT-05)*
+- [x] Chat panel opens/closes with smooth CSS animation — *Validated in Phase 4 (CHAT-14)*
+- [x] Loading screen with NR logo on all 4 pages — *Validated in Phase 4*
+- [x] Hero text entrance animation on index.html — *Validated in Phase 4*
+- [x] Back-to-top button on all 4 pages — *Validated in Phase 4*
+- [x] API key confirmed hidden in production DevTools — *Validated in Phase 4*
 
 ### Out of Scope
 
@@ -45,7 +49,7 @@ Visitors can quickly learn who Nathan Rubin is and engage with his story through
 - **Deployment:** Netlify auto-deploys from GitHub repo (Nathanrubin617) on push
 - **Domain:** nathanrubin617.com (custom domain configured in Netlify)
 - **Images:** All hosted on Imgur — URLs must not be changed
-- **Current state:** Phase 3 complete — 4-page site with working AI chat widget on all pages, deployed to Netlify
+- **Current state:** v1.0 complete — all 4 phases shipped and human-verified on nathanrubin617.com (2026-03-30)
 - **Color scheme:** Blue (#3b82f6), glassmorphism nav
 - **API security:** Anthropic API key stored as Netlify environment variable ANTHROPIC_API_KEY; proxied through a Netlify Function to avoid client-side exposure
 
