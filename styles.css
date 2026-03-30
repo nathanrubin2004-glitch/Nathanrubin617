@@ -68,13 +68,23 @@ body {
     background: white;
     border-radius: 12px;
     box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
-    display: none;
+    display: flex;
     flex-direction: column;
     overflow: hidden;
+    /* Animation: hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+    pointer-events: none;
 }
 
 .chat-window.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0s;
+    pointer-events: auto;
 }
 
 .chat-header {
@@ -249,6 +259,32 @@ body {
 .chat-send:disabled {
     background: #d1d5db;
     cursor: not-allowed;
+}
+
+.chat-chips {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1.25rem 1rem;
+    background: #f9fafb;
+}
+
+.chat-chip {
+    background: white;
+    border: 1.5px solid #3b82f6;
+    color: #3b82f6;
+    border-radius: 18px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.chat-chip:hover {
+    background: #3b82f6;
+    color: white;
 }
 
 @media (max-width: 640px) {
