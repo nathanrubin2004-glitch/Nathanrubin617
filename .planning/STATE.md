@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Completed 04-02-PLAN.md: starter chips and CSS animation"
-last_updated: "2026-03-30T00:13:33.732Z"
+stopped_at: "Completed Wave 2.5: loading screen, hero animation, back-to-top"
+last_updated: "2026-03-30T00:45:00.000Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 4
