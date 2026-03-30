@@ -36,7 +36,7 @@
 - [x] **CHAT-02**: Visitor can click the bubble to open a chat panel
 - [x] **CHAT-03**: Visitor can click a close button to dismiss the panel at any time
 - [x] **CHAT-04**: The chat panel shows a warm greeting message when first opened
-- [ ] **CHAT-05**: The chat panel shows 3 starter question chips below the greeting (e.g., "Tell me about his book", "Basketball career", "How to contact him")
+- [x] **CHAT-05**: The chat panel shows 3 starter question chips below the greeting (e.g., "Tell me about his book", "Basketball career", "How to contact him")
 - [x] **CHAT-06**: Visitor can type a message and send it by clicking the send button or pressing Enter
 - [x] **CHAT-07**: The send button is disabled and the input is locked while awaiting an API response
 - [x] **CHAT-08**: A loading/typing indicator is visible while the assistant is generating a response
@@ -45,7 +45,7 @@
 - [x] **CHAT-11**: The chat panel auto-scrolls to the latest message after each exchange
 - [x] **CHAT-12**: All messages from the current session remain visible while the panel is open
 - [x] **CHAT-13**: A graceful inline error message appears if the API call fails ("Something went wrong — try again")
-- [ ] **CHAT-14**: The chat panel opens and closes with a smooth CSS animation
+- [x] **CHAT-14**: The chat panel opens and closes with a smooth CSS animation
 - [x] **CHAT-15**: The widget logic lives in a shared chat.js file loaded by all 4 pages (not duplicated inline)
 - [x] **CHAT-16**: The widget uses the site's blue color scheme (#3b82f6) for assistant bubbles and the send button
 - [x] **CHAT-17**: The chat panel displays full-width on mobile screens
@@ -108,8 +108,8 @@
 | CHAT-16 | Phase 3 | Complete |
 | CHAT-17 | Phase 3 | Complete |
 | CHAT-18 | Phase 3 | Complete |
-| CHAT-05 | Phase 4 | Pending |
-| CHAT-14 | Phase 4 | Pending |
+| CHAT-05 | Phase 4 | Complete |
+| CHAT-14 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 34 total

@@ -8,18 +8,59 @@ const chatMessages = document.getElementById('chat-messages');
 
 let conversationHistory = [];
 
+const STARTER_CHIPS = [
+    "Tell me about Nathan's book",
+    "What's Nathan's basketball story?",
+    "How can I contact Nathan?"
+];
+
+function addStarterChips() {
+    const chipsContainer = document.createElement('div');
+    chipsContainer.className = 'starter-chips';
+    chipsContainer.id = 'starter-chips';
+    STARTER_CHIPS.forEach(text => {
+        const chip = document.createElement('button');
+        chip.className = 'starter-chip';
+        chip.textContent = text;
+        chip.addEventListener('click', () => {
+            removeStarterChips();
+            chatInput.value = text;
+            sendMessage();
+        });
+        chipsContainer.appendChild(chip);
+    });
+    chatMessages.appendChild(chipsContainer);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function removeStarterChips() {
+    const chips = document.getElementById('starter-chips');
+    if (chips) chips.remove();
+}
+
 chatBubble.addEventListener('click', () => {
-    chatWindow.classList.toggle('active');
     if (chatWindow.classList.contains('active')) {
+        chatWindow.classList.remove('active');
+        chatWindow.classList.add('closing');
+        chatWindow.addEventListener('animationend', () => {
+            chatWindow.classList.remove('closing');
+        }, { once: true });
+    } else {
+        chatWindow.classList.add('active');
         chatInput.focus();
         if (conversationHistory.length === 0) {
             addAssistantMessage("Hi! \ud83d\udc4b I'm Nathan's AI assistant. Ask me about his book, basketball career, or anything else!");
+            addStarterChips();
         }
     }
 });
 
 chatClose.addEventListener('click', () => {
     chatWindow.classList.remove('active');
+    chatWindow.classList.add('closing');
+    chatWindow.addEventListener('animationend', () => {
+        chatWindow.classList.remove('closing');
+    }, { once: true });
 });
 
 chatSend.addEventListener('click', sendMessage);
@@ -69,6 +110,8 @@ function removeTypingIndicator() {
 async function sendMessage() {
     const message = chatInput.value.trim();
     if (!message) return;
+
+    removeStarterChips();
 
     chatSend.disabled = true;
     chatInput.disabled = true;

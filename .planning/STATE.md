@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Completed 03-02-PLAN.md: chat widget JS extraction into shared chat.js"
-last_updated: "2026-03-30T00:04:20.703Z"
-last_activity: 2026-03-30 -- Phase 04 execution started
+stopped_at: "Completed 04-01-PLAN.md: starter chips and animation"
+last_updated: "2026-03-30T00:07:33.166Z"
+last_activity: 2026-03-29
 progress:
   total_phases: 4
-  completed_phases: 3
-  total_plans: 9
-  completed_plans: 6
+  completed_phases: 4
+  total_plans: 7
+  completed_plans: 7
   percent: 25
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-28)
 
 **Core value:** Visitors can quickly learn who Nathan Rubin is and engage with his story through a clean, fast, mobile-friendly static site with an AI assistant as a personal guide.
-**Current focus:** Phase 04 — polish-launch
+**Current focus:** Phase 03 — chat-widget
 
 ## Current Position
 
-Phase: 04 (polish-launch) — EXECUTING
-Plan: 1 of 3
-Status: Executing Phase 04
-Last activity: 2026-03-30 -- Phase 04 execution started
+Phase: 4
+Plan: Not started
+Status: Executing Phase 03
+Last activity: 2026-03-29
 
 Progress: [##░░░░░░░░] 25%
 
@@ -56,6 +56,7 @@ Progress: [##░░░░░░░░] 25%
 | Phase 02 P02 | 5 | 2 tasks | 0 files |
 | Phase 03 P01 | 1 | 2 tasks | 5 files |
 | Phase 03 P02 | 203 | 2 tasks | 5 files |
+| Phase 04 P01 | 1 | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -78,6 +79,8 @@ Recent decisions affecting current work:
 - [Phase 03-01]: viewport-fit=cover added to all 4 pages to activate iOS env() variables (D-07)
 - [Phase 03]: Shared chat.js in project root loaded via script src — no DOMContentLoaded wrapper needed since script placed after widget HTML
 - [Phase 03]: Single canonical error message in both catch paths: 'Something went wrong — try again' (CHAT-13)
+- [Phase 04]: Animate chat panel using CSS class toggle (active/closing) + animationend listener — avoids display:none flash
+- [Phase 04]: Starter chips rendered in JS from array — clean HTML, chips auto-removed on sendMessage
 
 ### Pending Todos
 
@@ -90,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T23:51:50.913Z
-Stopped at: Completed 03-02-PLAN.md: chat widget JS extraction into shared chat.js
+Last session: 2026-03-30T00:07:33.162Z
+Stopped at: Completed 04-01-PLAN.md: starter chips and animation
 Resume file: None
