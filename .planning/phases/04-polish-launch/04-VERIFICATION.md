@@ -111,4 +111,22 @@ Chip texts present: "Tell me about Nathan's book", "What's Nathan's basketball c
 
 **All automated checks passed.** Every Phase 4 feature is present and wired correctly in the codebase. The two plan-spec discrepancies noted above (`translateY` pixel value, `border-radius` value, chip function names) are implementation details that differ from the plan's expected pattern but are functionally identical.
 
-**Human verification on nathanrubin617.com is the next required step.**
+---
+
+## Human Production Verification
+
+**Date:** 2026-03-29
+**URL:** nathanrubin617.com
+**Status:** APPROVED — all 7 checks passed
+
+| Check | Description | Result |
+|-------|-------------|--------|
+| 1. Loading Screen | NR logo pulsing overlay on all 4 pages, fades out | PASS |
+| 2. Hero Animation | "Nathan Rubin" heading slides up + fades in on index.html only | PASS |
+| 3. Back-to-Top | Button appears at 300px scroll, smooth scrolls to top, disappears | PASS |
+| 4. Chat Animation | Panel slides up/fades in on open, slides down/fades out on close | PASS |
+| 5. Starter Chips | 3 chips appear on open, disappear after send, don't reappear | PASS |
+| 6. API Key Security | No ANTHROPIC_API_KEY in network headers/body; no system prompt in response | PASS |
+| 7. Mobile | Back-to-top and chat bubble do not overlap; chat full-width | PASS |
+
+**Human approval received:** User confirmed "approved" — all checks passed on production Netlify URL.
