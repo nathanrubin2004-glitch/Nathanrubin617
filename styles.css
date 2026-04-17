@@ -61,7 +61,7 @@ body {
     position: fixed;
     bottom: 8rem;
     right: 2rem;
-    z-index: 40;
+    z-index: 45;
     width: 100%;
     max-width: 400px;
     height: 550px;
@@ -362,6 +362,7 @@ body {
         right: 0;
         bottom: 0;
         height: 70vh;
+        height: 70dvh;
         border-radius: 12px 12px 0 0;
     }
 
