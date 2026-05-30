@@ -42,3 +42,36 @@ function triggerHeroAnimation() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 })();
+
+// Chasing a Dream nav notification dot — clears when user clicks the link or lands on book.html
+(function() {
+    var STORAGE_KEY = 'chasingDreamEventSeen_v1';
+    var dots = document.querySelectorAll('[data-event-dot]');
+    if (!dots.length) return;
+
+    function hideDots() {
+        dots.forEach(function(d) { d.style.display = 'none'; });
+    }
+    function markSeen() {
+        try { localStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+    }
+
+    var seen = false;
+    try { seen = localStorage.getItem(STORAGE_KEY) === '1'; } catch (e) {}
+
+    var path = window.location.pathname;
+    var onBookPage = /(^|\/)book(\.html)?\/?$/i.test(path) || /Chasing a Dream/.test(document.title || '');
+
+    if (seen || onBookPage) {
+        hideDots();
+        markSeen();
+        return;
+    }
+
+    document.querySelectorAll('[data-nav-chasing]').forEach(function(a) {
+        a.addEventListener('click', function() {
+            markSeen();
+            hideDots();
+        });
+    });
+})();
