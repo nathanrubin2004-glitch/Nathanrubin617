@@ -97,9 +97,10 @@ None yet.
 |---|-------------|------|--------|-----------|
 | 260416-tgt | Add image from https://ibb.co/F4YHXV9h to the bottom of the Chasing a Dream section | 2026-04-17 | — | [260416-tgt-add-image-from-https-ibb-co-f4yhxv9h-to-](./quick/260416-tgt-add-image-from-https-ibb-co-f4yhxv9h-to-/) |
 | 260422-lgi | Add Writing page with 5 project cards and Writing nav link to all pages | 2026-04-22 | cc8f22e | [260422-lgi-add-writing-section](./quick/260422-lgi-add-writing-section/) |
+| 260623-ith | Mark June 20 Young Dreamers Workshop event as completed; remove popup modal and nav notification dot; move event to Completed Events with June20photo.jpeg; add Headshot.jpeg to About section | 2026-06-23 | ede4fdb | [260623-ith-mark-june-20-young-dreamers-workshop-eve](./quick/260623-ith-mark-june-20-young-dreamers-workshop-eve/) |
 
 ## Session Continuity
 
-Last session: 2026-04-22
-Stopped at: Completed quick task 260422-lgi: Add Writing page with 5 project cards and Writing nav link to all pages
+Last session: 2026-06-23
+Stopped at: Completed quick task 260623-ith: Mark June 20 Young Dreamers Workshop event as completed
 Resume file: None
