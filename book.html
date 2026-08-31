@@ -81,12 +81,67 @@
         <!-- Upcoming Events Section -->
         <section id="events" class="bg-white rounded-xl shadow-lg p-8 mb-12">
             <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2">Upcoming Events</h2>
+            <div class="flex flex-col space-y-8">
+                
+                <!-- Workshop, Reading & Signing -->
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <p class="text-sm font-bold text-blue-600 mb-2">Summer 2026</p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Workshop, Reading & Signing</h3>
+                    <p class="text-gray-700 mb-4">Join me for a fun, interactive workshop along with a "Chasing a Dream" reading and signing.</p>
+                    <a href="#" class="text-sm text-gray-400 cursor-not-allowed">Boston, MA</a>
+                </div>
 
-            <div class="bg-gray-100 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
-                <p class="text-sm font-bold text-blue-600 mb-2">Summer 2026</p>
-                <h3 class="text-xl font-bold text-gray-800 mb-2">Workshop, Reading & Signing</h3>
-                <p class="text-gray-700 mb-4">Join me for a fun, interactive workshop along with a "Chasing a Dream" reading and signing.</p>
-                <a href="#" class="text-sm text-gray-400 cursor-not-allowed">Boston, MA</a>
+                <!-- Mildred Ave Book Bag Drive -->
+                <div class="bg-gray-100 rounded-lg p-6 shadow-md flex flex-col md:flex-row justify-between items-center md:space-x-8">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <p class="text-sm font-bold text-blue-600 mb-2">Late Summer 2026</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">2026 Annual Mildred Ave Community Center Book Bag Drive — Mattapan</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Nathan participated in the 2026 Annual Mildred Ave Community Center Book Bag Drive in Mattapan, where hundreds of book bags and school supplies were distributed to children in the community. Alongside providing supplies, Nathan shared the message and values behind Chasing a Dream, encouraging young people to embrace confidence, ambition, self-belief, and the mindset that they can pursue their dreams.
+                        </p>
+                        <p class="text-sm text-gray-600">Mildred Ave Community Center, Mattapan, Boston, MA</p>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center w-full">
+                        <!-- Carousel Container -->
+                        <div class="relative w-full max-w-sm aspect-[4/3] rounded-lg shadow-lg overflow-hidden group">
+                            <div id="mildred-carousel-slides" class="flex transition-transform duration-500 ease-in-out h-full">
+                                <div class="w-full h-full flex-shrink-0">
+                                    <img src="Mildred1.jpg" alt="Mildred Book Bag Drive 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="w-full h-full flex-shrink-0">
+                                    <img src="Mildred2.jpeg" alt="Mildred Book Bag Drive 2" class="w-full h-full object-cover">
+                                </div>
+                                <div class="w-full h-full flex-shrink-0">
+                                    <img src="Mildred3.jpeg" alt="Mildred Book Bag Drive 3" class="w-full h-full object-cover">
+                                </div>
+                                <div class="w-full h-full flex-shrink-0">
+                                    <img src="Mildred4.jpeg" alt="Mildred Book Bag Drive 4" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation Buttons -->
+                            <button id="mildred-prev-btn" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full transition-colors focus:outline-none z-10" aria-label="Previous image">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button id="mildred-next-btn" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full transition-colors focus:outline-none z-10" aria-label="Next image">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                            
+                            <!-- Indicator Dots -->
+                            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+                                <span class="mildred-dot w-2 h-2 rounded-full bg-white opacity-100 cursor-pointer animate-none" data-slide="0"></span>
+                                <span class="mildred-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer animate-none" data-slide="1"></span>
+                                <span class="mildred-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer animate-none" data-slide="2"></span>
+                                <span class="mildred-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer animate-none" data-slide="3"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -275,6 +330,50 @@
                     mobileMenu.classList.add('hidden');
                 });
             });
+
+            // Mildred Carousel Logic
+            const slides = document.getElementById('mildred-carousel-slides');
+            const prevBtn = document.getElementById('mildred-prev-btn');
+            const nextBtn = document.getElementById('mildred-next-btn');
+            const dots = document.querySelectorAll('.mildred-dot');
+            
+            if (slides && prevBtn && nextBtn) {
+                let currentIndex = 0;
+                const totalSlides = 4;
+                
+                function updateCarousel(index) {
+                    currentIndex = (index + totalSlides) % totalSlides;
+                    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    
+                    // Update dots visual state
+                    dots.forEach((dot, idx) => {
+                        if (idx === currentIndex) {
+                            dot.classList.remove('bg-white/50');
+                            dot.classList.add('bg-white', 'opacity-100');
+                        } else {
+                            dot.classList.remove('bg-white', 'opacity-100');
+                            dot.classList.add('bg-white/50');
+                        }
+                    });
+                }
+                
+                prevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    updateCarousel(currentIndex - 1);
+                });
+                
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    updateCarousel(currentIndex + 1);
+                });
+                
+                dots.forEach((dot, idx) => {
+                    dot.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        updateCarousel(idx);
+                    });
+                });
+            }
         });
     </script>
     <button id="back-to-top" aria-label="Back to top">&#8593;</button>

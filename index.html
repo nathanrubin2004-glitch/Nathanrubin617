@@ -15,7 +15,6 @@
     <style>
         /* Hero Styles — index.html only */
         .hero-bg {
-            background-image: url('https://i.imgur.com/hnJz5s5.jpeg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -28,7 +27,7 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.65);
             border-radius: 0.75rem;
             z-index: -1;
         }
@@ -89,7 +88,18 @@
     <main class="max-w-7xl mx-auto px-6 mt-8">
         
         <!-- Hero Section -->
-        <section id="hero" class="hero-bg rounded-xl shadow-lg p-10 py-20 md:py-32 text-center mb-12 overflow-hidden">
+        <section id="hero" class="hero-bg rounded-xl shadow-lg p-10 py-20 md:py-32 text-center mb-12 overflow-hidden relative">
+            <!-- Hero Background Collage -->
+            <div class="absolute inset-0 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 p-1" style="z-index: -2;">
+                <div class="relative overflow-hidden rounded"><img src="Basketball1.JPG" alt="Basketball" class="absolute inset-0 w-full h-full object-cover"></div>
+                <div class="relative overflow-hidden rounded"><img src="https://i.imgur.com/MEED7S6.jpeg" alt="Chasing a Dream" class="absolute inset-0 w-full h-full object-cover"></div>
+                <div class="relative overflow-hidden rounded"><img src="June20photo.jpeg" alt="Community Event" class="absolute inset-0 w-full h-full object-cover"></div>
+                <div class="relative overflow-hidden rounded"><img src="Mildred1.jpg" alt="Mildred Book Bag Drive" class="absolute inset-0 w-full h-full object-cover"></div>
+                <div class="relative overflow-hidden rounded hidden sm:block"><img src="https://i.imgur.com/4QRYvm7.jpeg" alt="UMass Boston Basketball" class="absolute inset-0 w-full h-full object-cover"></div>
+                <div class="relative overflow-hidden rounded hidden sm:block"><img src="LevelGroundEvent.jpeg" alt="Level Ground Dorchester" class="absolute inset-0 w-full h-full object-cover"></div>
+                <div class="relative overflow-hidden rounded hidden md:block"><img src="Mildred2.jpeg" alt="Mildred Community" class="absolute inset-0 w-full h-full object-cover"></div>
+                <div class="relative overflow-hidden rounded hidden md:block"><img src="Basketball2.JPG" alt="Basketball 2" class="absolute inset-0 w-full h-full object-cover"></div>
+            </div>
             <div class="social-icons-container">
                 <a href="https://instagram.com/nathanrubin24" target="_blank" class="social-icon transition-transform duration-200">
                     <img src="https://i.ibb.co/GQQfkTDd/Instagram-logo-2016-svg.png" 
