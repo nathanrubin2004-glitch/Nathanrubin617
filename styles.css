@@ -287,45 +287,10 @@ body {
     color: #2563eb;
 }
 
-/* Loading Screen Overlay */
-#loading-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: #1e3a5f;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.4s ease;
-}
-
-#loading-overlay.fade-out {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.loading-logo {
-    width: 80px;
-    height: 80px;
-    animation: pulse-logo 1.2s ease-in-out infinite;
-}
-
-@keyframes pulse-logo {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.08); opacity: 0.85; }
-}
-
-/* Hero Text Entrance Animation */
-.hero-animate-ready {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.hero-animate-ready.hero-animate-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* Optional entrance motion: content remains readable without JavaScript. */
+.hero-animate-visible { animation: hero-enter 0.5s ease both; }
+@keyframes hero-enter { from { transform: translateY(12px); } to { transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .hero-animate-visible { animation: none; } }
 
 /* Back-to-Top Button */
 #back-to-top {
@@ -370,3 +335,39 @@ body {
         max-width: 90%;
     }
 }
+/* Amazon release announcement: native dialog handles keyboard and Escape. */
+.book-release {
+    box-sizing: border-box;
+    width: min(520px, calc(100% - 32px));
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    margin: auto;
+    padding: 32px 28px;
+    border: 1px solid #dbeafe;
+    border-radius: 24px;
+    background: #fff;
+    color: #374151;
+    font-family: Inter, sans-serif;
+    text-align: center;
+    box-shadow: 0 24px 80px #1e3a5f55;
+}
+.book-release::backdrop { background: #0f172ab3; }
+.book-release-close {
+    position: absolute; top: 8px; right: 8px;
+    width: 44px; height: 44px;
+    border: 0; border-radius: 50%;
+    background: #eff6ff; color: #1e40af;
+    font-size: 28px; cursor: pointer;
+}
+.book-release-cover { display: block; width: 140px; max-width: 60%; height: auto; margin: 0 auto 20px; border-radius: 8px; box-shadow: 0 6px 18px #1e3a5f22; }
+.book-release h2 { margin: 0 0 16px; color: #1f2937; font-size: clamp(22px, 5vw, 28px); font-weight: 800; line-height: 1.2; }
+.book-release p { margin: 0 0 20px; line-height: 1.6; }
+.book-release-buy { display: inline-block; padding: 12px 40px; border-radius: 999px; background: #2563eb; color: white; font-weight: 600; text-decoration: none; }
+.book-release-buy:hover { background: #1d4ed8; }
+.book-release-review { margin-top: 24px; padding-top: 20px; border-top: 1px solid #dbeafe; font-size: 14px; }
+.book-release-review p { margin-bottom: 8px; }
+.book-release-review a { color: #1d4ed8; font-weight: 600; text-decoration: underline; }
+.book-release :focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+@media (max-width: 400px) { .book-release { padding: 28px 20px; } .book-release-cover { width: 112px; } }

@@ -7,7 +7,7 @@ ABOUT NATHAN:
 Nathan Rubin is a writer, athlete, economist, and storyteller from Boston, MA. He studies Economics, Community Relations, and Diaspora at the Liberal Arts College of UMass Boston. He is passionate about inspiring the next generation through storytelling and community leadership.
 
 HIS BOOK — "CHASING A DREAM":
-Nathan's debut children's book "Chasing a Dream" teaches confidence, kindness, and self-belief, encouraging young readers to see the greatness within themselves. Available at local libraries, community centers, youth organizations, and Little Free Library locations. Purchase: https://buy.stripe.com/5kQ8wR1pRfD2dxV1wwgYU02
+Nathan's debut children's book "Chasing a Dream" teaches confidence, kindness, and self-belief, encouraging young readers to see the greatness within themselves. Available at local libraries, community centers, youth organizations, and Little Free Library locations. Purchase: https://www.amazon.com/dp/B0HKGRP94Z?spcref=PRINT_LISTING
 
 BASKETBALL:
 Nathan is a 2024 graduate of Lexington Christian Academy (EIL Champion, NEPSAC Champion). He now plays basketball at UMass Boston.

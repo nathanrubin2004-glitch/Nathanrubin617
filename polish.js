@@ -1,16 +1,9 @@
-// Loading screen — dismiss on window load
-window.addEventListener('load', function() {
-    var overlay = document.getElementById('loading-overlay');
-    if (!overlay) return;
-    overlay.classList.add('fade-out');
-    overlay.addEventListener('transitionend', function() {
-        overlay.style.display = 'none';
-        // Trigger hero animation after overlay hides (index.html only)
-        if (document.getElementById('hero-heading')) {
-            triggerHeroAnimation();
-        }
-    }, { once: true });
-});
+// Content stays visible; this optional flourish never waits for remote assets.
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", triggerHeroAnimation, { once: true });
+} else {
+    triggerHeroAnimation();
+}
 
 function triggerHeroAnimation() {
     var heading = document.getElementById('hero-heading');

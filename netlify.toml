@@ -1,3 +1,17 @@
+[build]
+  command = ""
+  publish = "."
+
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/chasing-a-dream"
+  to = "/book.html"
+  status = 301
+
+[[redirects]]
+  from = "/chasing-a-dream/"
+  to = "/book.html"
+  status = 301
