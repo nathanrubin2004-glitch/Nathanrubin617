@@ -15,3 +15,33 @@
   from = "/chasing-a-dream/"
   to = "/book.html"
   status = 301
+
+[[redirects]]
+  from = "/books"
+  to = "/books.html"
+  status = 200
+
+[[redirects]]
+  from = "/books/"
+  to = "/books.html"
+  status = 200
+
+[[redirects]]
+  from = "/elephants-garden"
+  to = "/elephants-garden.html"
+  status = 200
+
+[[redirects]]
+  from = "/elephants-garden/"
+  to = "/elephants-garden.html"
+  status = 200
+
+[[redirects]]
+  from = "/community-engagement"
+  to = "/community-engagement.html"
+  status = 200
+
+[[redirects]]
+  from = "/community-engagement/"
+  to = "/community-engagement.html"
+  status = 200

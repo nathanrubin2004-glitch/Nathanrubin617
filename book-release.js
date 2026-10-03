@@ -17,12 +17,17 @@
             dialog.setAttribute('aria-labelledby', 'book-release-title');
             dialog.setAttribute('aria-describedby', 'book-release-description');
             dialog.innerHTML = '<button type="button" class="book-release-close" aria-label="Close announcement" autofocus>&times;</button>' +
-                '<img class="book-release-cover" src="assets/images/chasing-a-dream-cover.jpeg" alt="Chasing a Dream book cover">' +
-                '<h2 id="book-release-title">Chasing a Dream is Now Available on Amazon!</h2>' +
-                '<p id="book-release-description">Chasing a Dream is now available on Amazon! This exclusive Amazon edition includes a few added pages and a full guided activity at the end of the book designed to spark goal-setting for young readers.</p>' +
-                '<a class="book-release-buy" href="https://www.amazon.com/dp/B0HKGRP94Z?spcref=PRINT_LISTING" target="_blank" rel="noopener noreferrer">Buy Now</a>' +
-                '<div class="book-release-review"><p>Already purchased? Please leave a review!</p>' +
-                '<a href="https://www.amazon.com/review/create-review/edit?ie=UTF8&amp;channel=glance-detail&amp;asin=B0HKGRP94Z" target="_blank" rel="noopener noreferrer">Leave a Review</a></div>';
+                '<h2 id="book-release-title">Nathan Rubin’s Children’s Books</h2>' +
+                '<p id="book-release-description">Stories to inspire young dreamers and make room for every feeling.</p>' +
+                '<div class="book-release-grid">' +
+                '<article class="book-release-card">' +
+                '<img class="book-release-cover" src="assets/images/chasing-a-dream-cover.jpeg" alt="Cover of Chasing a Dream by Nathan Rubin">' +
+                '<h3>Chasing a Dream</h3><p>A story of confidence, kindness, and self-belief.</p>' +
+                '<a class="book-release-buy" href="book.html" aria-label="Explore Chasing a Dream">Explore the Book</a></article>' +
+                '<article class="book-release-card">' +
+                '<img class="book-release-cover" src="assets/images/elephants-garden-cover.webp" width="1391" height="1800" alt="Cover of The Elephant’s Garden by Nathan Rubin, showing a blue elephant watering flowers beside a turtle in a colorful garden.">' +
+                '<h3>The Elephant’s Garden</h3><p>A gentle story about emotions and growing into who we are.</p>' +
+                '<a class="book-release-buy" href="elephants-garden.html" aria-label="Explore The Elephant’s Garden">Explore the Book</a></article></div>';
             var previousFocus = document.activeElement;
             dialog.querySelector('button').addEventListener('click', function () { dialog.close(); });
             dialog.addEventListener('click', function (event) {

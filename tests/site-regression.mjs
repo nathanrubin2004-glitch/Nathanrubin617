@@ -4,13 +4,13 @@ import vm from 'node:vm';
 
 const read = name => fs.readFileSync(new URL('../' + name, import.meta.url), 'utf8');
 const purchase = 'https://www.amazon.com/dp/B0HKGRP94Z?spcref=PRINT_LISTING';
-for (const file of ['index.html', 'book.html', 'basketball.html', 'writing.html', 'contact.html']) {
+for (const file of ['index.html', 'book.html', 'basketball.html', 'writing.html', 'contact.html', 'books.html', 'elephants-garden.html', 'community-engagement.html']) {
     const html = read(file);
     assert.ok(!html.includes('loading-overlay'), file + ': no blocking overlay even without JS');
     assert.ok(!html.includes('hero-animate-ready'), file + ': visible hero without JS');
     assert.match(html, /<script src="book-release.js"><\/script>/);
     for (const match of html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)) {
-        if (/Get the Book|Buy Now|Buy It Now|Purchase a Copy/.test(match[2])) {
+        if (/^(Get the Book|Buy Now|Buy It Now|Purchase a Copy)$/.test(match[2].trim())) {
             assert.ok(match[1].includes(`href="${purchase}"`), file + ': purchase URL');
             assert.match(match[1], /target="_blank"/);
             assert.match(match[1], /rel="noopener noreferrer"/);
@@ -63,9 +63,12 @@ first.events.DOMContentLoaded();
 first.flush();
 const dialog = first.dialogs[0];
 assert.equal(dialog.open, true);
-assert.match(dialog.innerHTML, /full guided activity at the end of the book/);
-assert.ok(dialog.innerHTML.includes(purchase));
-assert.match(dialog.innerHTML, /review\/create-review\/edit/);
+assert.match(dialog.innerHTML, /Nathan Rubin’s Children’s Books/);
+assert.match(dialog.innerHTML, /Chasing a Dream/);
+assert.match(dialog.innerHTML, /The Elephant’s Garden/);
+assert.match(dialog.innerHTML, /href="book.html"/);
+assert.match(dialog.innerHTML, /href="elephants-garden.html"/);
+assert.match(dialog.innerHTML, /assets\/images\/elephants-garden-cover.webp/);
 dialog.listeners.click({ target: dialog, clientX: 100, clientY: 100 });
 assert.equal(dialog.open, true, 'dialog padding clicks stay open');
 dialog.listeners.click({ target: {}, clientX: 1, clientY: 1 });
