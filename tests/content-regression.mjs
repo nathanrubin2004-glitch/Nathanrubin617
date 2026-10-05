@@ -10,14 +10,16 @@ const digest = text => crypto.createHash('sha256').update(text).digest('hex');
 const community = read('community-engagement.html');
 const book = read('book.html');
 const expectedSections = {
-    events: 'e9f8fa6332233d25b59a27e10fea92b79d2e2f169343b132c84b961895fe6362',
+    events: '55f6d9b7c5ef6e469c867bbdf7ca684b88b56467a904b64c16c96eb2a63c5bf0',
     'completed-events': '8b253e56c066e793fcd0000aee545d4d8ee1ef5e7be01e17a77ad6c9248653f9',
     news: 'dba45ec9d10c04fd36f9f963943a408832604fd24e33579adc2c4f1e11acb353'
 };
 for (const [id, hash] of Object.entries(expectedSections)) {
-    assert.equal(digest(section(community, id)), hash, id + ': original content preserved byte for byte');
+    assert.equal(digest(section(community, id)), hash, id + ': content preserved or updated properly');
     assert.ok(!section(book, id), id + ': removed from former location');
 }
+assert.ok(!section(community, 'events').includes('Summer 2026'), 'Summer 2026 event removed from upcoming events');
+assert.ok(!section(community, 'events').includes('Workshop, Reading & Signing'), 'Workshop event removed from upcoming events');
 assert.ok(community.indexOf('id="events"') < community.indexOf('id="completed-events"'));
 assert.ok(community.indexOf('id="completed-events"') < community.indexOf('id="news"'));
 assert.ok(community.includes('mildred-carousel-slides'));
@@ -29,6 +31,7 @@ for (const file of pages) {
     assert.equal((header.match(/>Books<\/a>/g) || []).length, 2, file + ': desktop and mobile Books');
     assert.equal((header.match(/>Community Engagement<\/a>/g) || []).length, 2, file + ': desktop and mobile community');
     assert.ok(!header.includes('data-nav-chasing'));
+    assert.match(html, /© <span class="copyright-year">2026<\/span> Nathan Rubin\. All rights reserved\./, file + ': 2026 copyright');
     for (const match of html.matchAll(/(?:src|href)="([^"#?]+)(?:[?#][^"]*)?"/g)) {
         if (/^(?:https?:|mailto:|tel:|data:)/.test(match[1])) continue;
         assert.ok(fs.existsSync(new URL('../' + match[1], import.meta.url)), file + ': local reference ' + match[1]);
@@ -52,8 +55,18 @@ for (const file of ['books.html', 'elephants-garden.html', 'community-engagement
     const route = '/' + file.replace('.html', '');
     assert.ok(read('netlify.toml').includes('from = "' + route + '"'));
 }
-assert.match(read('index.html'), /href="community-engagement.html#events"/);
-assert.match(read('index.html'), /Explore My Books/);
+const indexHtml = read('index.html');
+assert.match(indexHtml, /Author\. Student-Athlete\. Youth Speaker\. Community Builder\./);
+assert.match(indexHtml, /Explore the Books/);
+assert.match(indexHtml, /Bring Nathan to Your School\/Organization/);
+assert.match(indexHtml, /See Community Work/);
+assert.match(indexHtml, /Chasing a Dream/);
+assert.match(indexHtml, /The Elephant’s Garden/);
+assert.match(indexHtml, /href="community-engagement\.html#events"/);
+const writingHtml = read('writing.html');
+assert.ok(!writingHtml.includes('currently in development'));
+assert.match(writingHtml, /The Elephant’s Garden/);
+assert.match(writingHtml, /href="elephants-garden\.html"/);
 assert.match(book, /review\/create-review\/edit/);
 assert.equal(digest(section(book, 'reviews')), 'f311e98c750402d175c4163ff97143c419a48d6e4472601886ff7e14fec01260', 'existing book reviews preserved');
 console.log('PASS: eight-page navigation, local assets, inline JS syntax, exact relocated content, metadata, book copy, routes and links');

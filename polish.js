@@ -119,3 +119,22 @@ document.addEventListener('keydown', function(event) {
     button.setAttribute('aria-expanded', 'false');
     button.focus();
 });
+
+// Automatically keep copyright year current across all pages
+(function() {
+    function updateCopyrightYear() {
+        var yearEls = document.querySelectorAll('.copyright-year');
+        if (yearEls.length) {
+            var currentYear = new Date().getFullYear();
+            yearEls.forEach(function(el) {
+                el.textContent = currentYear;
+            });
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateCopyrightYear, { once: true });
+    } else {
+        updateCopyrightYear();
+    }
+})();
+
