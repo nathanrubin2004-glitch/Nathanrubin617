@@ -1,9 +1,15 @@
 /* Hero collage photo rotation — index.html only.
  *
- * Each hero collage cell slowly cycles through a small pool of photos with a
- * smooth crossfade. One cell changes at a time (round-robin), so the hero
+ * Each hero collage cell slowly cycles through its own pool of photos with a
+ * smooth crossfade. Pools are disjoint: no two cells ever show the same photo
+ * at the same time. One cell changes at a time (round-robin), so the hero
  * never flashes or shifts layout. The existing hover zoom, overlay, and
  * entrance animations are untouched.
+ *
+ * Every photo carries its own focal point (object-position) so faces, titles,
+ * and subjects stay framed as the crop changes. The focal point is applied to
+ * both the base layer and the crossfade layer on every swap, and the initial
+ * <img> tags in index.html carry matching inline styles for first paint.
  *
  * Behavior notes:
  * - Disabled entirely when the user prefers reduced motion.
@@ -14,21 +20,52 @@
 (function () {
     'use strict';
 
-    // Photo pools, one per collage cell in DOM order. The first entry in each
-    // pool must match the <img> src already in index.html for that cell.
+    // Photo pools, one per collage cell in DOM order. Pools are disjoint.
+    // The first entry in each pool must match the <img> src already in
+    // index.html for that cell (including its inline object-position).
     var POOLS = [
-        ['Basketball1.JPG', 'Basketball2.JPG', 'Headshot.jpeg'],
-        ['assets/images/chasing-a-dream-cover.jpeg', 'assets/images/elephants-garden-cover.webp', 'June20photo.jpeg'],
-        ['June20photo.jpeg', 'June20thevent.JPG', 'Mildred1.jpg'],
-        ['Mildred1.jpg', 'Mildred3.jpeg', 'Mildred4.jpeg'],
-        ['https://i.imgur.com/4QRYvm7.jpeg', 'Basketball1.JPG', 'Basketball2.JPG'],
-        ['LevelGroundEvent.jpeg', 'Levelground.webp', 'June20thevent.JPG'],
-        ['Mildred2.jpeg', 'Mildred3.jpeg', 'Mildred4.jpeg'],
-        ['Basketball2.JPG', 'Headshot.jpeg', 'Basketball1.JPG']
+        [
+            { src: 'Basketball1.JPG', pos: '50% 35%' },
+            { src: 'Headshot.jpeg', pos: '50% 20%' }
+        ],
+        [
+            { src: 'assets/images/chasing-a-dream-cover.jpeg', pos: '50% 40%' },
+            { src: 'assets/images/elephants-garden-cover.webp', pos: '50% 20%' },
+            { src: 'assets/images/young-dreamers-flyer.jpg', pos: '50% 35%' }
+        ],
+        [
+            { src: 'June20photo.jpeg', pos: '50% 35%' },
+            { src: 'assets/images/classroom-reading.jpg', pos: '50% 25%' }
+        ],
+        [
+            { src: 'Mildred1.jpg', pos: '50% 38%' },
+            { src: 'assets/images/backpack-giveaway.jpg', pos: '50% 18%' }
+        ],
+        [
+            { src: 'https://i.imgur.com/4QRYvm7.jpeg', pos: '50% 50%' },
+            { src: 'Basketball2.JPG', pos: '50% 50%' }
+        ],
+        [
+            { src: 'LevelGroundEvent.jpeg', pos: '50% 50%' },
+            { src: 'Levelground.webp', pos: '50% 35%' }
+        ],
+        [
+            { src: 'Mildred2.jpeg', pos: '50% 55%' },
+            { src: 'Mildred3.jpeg', pos: '50% 15%' }
+        ],
+        [
+            { src: 'Mildred4.jpeg', pos: '50% 30%' },
+            { src: 'June20thevent.JPG', pos: '50% 35%' }
+        ]
     ];
 
     var ROTATE_EVERY_MS = 5000;  // one cell changes every 5 seconds
     var FADE_MS = 1400;          // crossfade duration (matches CSS)
+
+    function applyPhoto(img, photo) {
+        img.src = photo.src;
+        img.style.objectPosition = photo.pos;
+    }
 
     function init() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -53,9 +90,9 @@
 
             var pool = POOLS[i % POOLS.length];
             // Preload every pool image so swaps never flash.
-            pool.forEach(function (src) {
+            pool.forEach(function (photo) {
                 var pre = new Image();
-                pre.src = src;
+                pre.src = photo.src;
             });
 
             cells.push({ base: base, fade: fade, pool: pool, idx: 0 });
@@ -67,26 +104,30 @@
 
         function showNext(cell, attempts) {
             attempts = attempts || 0;
-            if (attempts >= cell.pool.length) return; // all failed; give up quietly
+            if (attacksGuard(cell, attempts)) return;
             cell.idx = (cell.idx + 1) % cell.pool.length;
             var next = cell.pool[cell.idx];
 
             var probe = new Image();
             probe.onload = function () {
-                cell.fade.src = next;
+                applyPhoto(cell.fade, next);
                 // Force a reflow so the opacity transition restarts cleanly.
                 void cell.fade.offsetWidth;
                 cell.fade.style.opacity = '1';
                 setTimeout(function () {
                     // Swap the base image underneath, then fade the top layer out.
-                    cell.base.src = next;
+                    applyPhoto(cell.base, next);
                     cell.fade.style.opacity = '0';
                 }, FADE_MS + 120);
             };
             probe.onerror = function () {
                 showNext(cell, attempts + 1); // skip broken images
             };
-            probe.src = next;
+            probe.src = next.src;
+        }
+
+        function attacksGuard(cell, attempts) {
+            return attempts >= cell.pool.length; // all failed; give up quietly
         }
 
         function advance() {
