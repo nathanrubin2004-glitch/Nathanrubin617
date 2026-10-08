@@ -52,8 +52,7 @@
             { src: 'Basketball2.JPG', pos: '50% 50%' }
         ],
         [
-            { src: 'LevelGroundEvent.jpeg', pos: '50% 50%' },
-            { src: 'Levelground.webp', pos: '50% 35%' }
+            { src: 'LevelGroundEvent.jpeg', pos: '50% 50%' }
         ],
         [
             { src: 'Mildred2.jpeg', pos: '50% 55%' },
