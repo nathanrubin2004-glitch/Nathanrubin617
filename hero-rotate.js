@@ -40,7 +40,7 @@
             { src: 'assets/images/young-dreamers-flyer.jpg', pos: '50% 35%' }
         ],
         [
-            { src: 'June20photo.jpeg', pos: '50% 24%' },
+            { src: 'June20photo.jpeg', pos: '50% 10%' },
             { src: 'assets/images/classroom-reading.jpg', pos: '50% 25%' }
         ],
         [
