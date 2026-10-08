@@ -6,10 +6,14 @@
  * never flashes or shifts layout. The existing hover zoom, overlay, and
  * entrance animations are untouched.
  *
+ * Every visit gets a fresh lineup: on each page load the pools are shuffled
+ * across the cells and every cell starts on a random photo from its pool, so
+ * the collage never opens with the same arrangement twice. Disjointness is
+ * preserved, so no duplicates can appear.
+ *
  * Every photo carries its own focal point (object-position) so faces, titles,
  * and subjects stay framed as the crop changes. The focal point is applied to
- * both the base layer and the crossfade layer on every swap, and the initial
- * <img> tags in index.html carry matching inline styles for first paint.
+ * both the base layer and the crossfade layer on every swap.
  *
  * Behavior notes:
  * - Disabled entirely when the user prefers reduced motion.
@@ -20,9 +24,7 @@
 (function () {
     'use strict';
 
-    // Photo pools, one per collage cell in DOM order. Pools are disjoint.
-    // The first entry in each pool must match the <img> src already in
-    // index.html for that cell (including its inline object-position).
+    // Photo pools, one per collage cell. Pools are disjoint.
     var POOLS = [
         [
             { src: 'Basketball1.JPG', pos: '50% 35%' },
@@ -67,6 +69,18 @@
         img.style.objectPosition = photo.pos;
     }
 
+    // Fisher-Yates shuffle, returns a new shuffled array.
+    function shuffled(arr) {
+        var copy = arr.slice();
+        for (var i = copy.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = copy[i];
+            copy[i] = copy[j];
+            copy[j] = tmp;
+        }
+        return copy;
+    }
+
     function init() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             return; // leave the static collage exactly as authored
@@ -75,6 +89,10 @@
         if (!hero) return;
         var items = hero.querySelectorAll('.hero-collage-item');
         if (!items.length) return;
+
+        // Fresh lineup on every visit: shuffle which pool feeds which cell,
+        // and start each cell on a random photo from its pool.
+        var pools = shuffled(POOLS);
 
         var cells = [];
         for (var i = 0; i < items.length; i++) {
@@ -88,18 +106,22 @@
             fade.setAttribute('aria-hidden', 'true');
             items[i].appendChild(fade);
 
-            var pool = POOLS[i % POOLS.length];
+            var pool = pools[i % pools.length];
             // Preload every pool image so swaps never flash.
             pool.forEach(function (photo) {
                 var pre = new Image();
                 pre.src = photo.src;
             });
 
-            cells.push({ base: base, fade: fade, pool: pool, idx: 0 });
+            // Start this cell on a random photo from its pool.
+            var startIdx = Math.floor(Math.random() * pool.length);
+            applyPhoto(base, pool[startIdx]);
+
+            cells.push({ base: base, fade: fade, pool: pool, idx: startIdx });
         }
         if (!cells.length) return;
 
-        var cursor = 0;
+        var cursor = Math.floor(Math.random() * cells.length);
         var timer = null;
 
         function showNext(cell, attempts) {
