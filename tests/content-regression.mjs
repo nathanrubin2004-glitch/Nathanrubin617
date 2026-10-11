@@ -10,7 +10,6 @@ const digest = text => crypto.createHash('sha256').update(text).digest('hex');
 const community = read('community-engagement.html');
 const book = read('book.html');
 const expectedSections = {
-    events: '55f6d9b7c5ef6e469c867bbdf7ca684b88b56467a904b64c16c96eb2a63c5bf0',
     'completed-events': '8b253e56c066e793fcd0000aee545d4d8ee1ef5e7be01e17a77ad6c9248653f9',
     news: 'dba45ec9d10c04fd36f9f963943a408832604fd24e33579adc2c4f1e11acb353'
 };
@@ -19,6 +18,8 @@ for (const [id, hash] of Object.entries(expectedSections)) {
     assert.ok(!section(book, id), id + ': removed from former location');
 }
 assert.ok(!section(community, 'events').includes('Summer 2026'), 'Summer 2026 event removed from upcoming events');
+assert.match(section(community, 'events'), /id="turtle-books-reading"/);
+assert.match(section(community, 'events'), /Upcoming school visits, book readings, and community workshops are currently being scheduled\./);
 assert.ok(!section(community, 'events').includes('Workshop, Reading & Signing'), 'Workshop event removed from upcoming events');
 assert.ok(community.indexOf('id="events"') < community.indexOf('id="completed-events"'));
 assert.ok(community.indexOf('id="completed-events"') < community.indexOf('id="news"'));

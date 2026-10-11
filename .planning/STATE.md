@@ -5,7 +5,7 @@ milestone_name: milestone
 status: completed
 stopped_at: "Completed 04-03-PLAN.md: end-to-end production verification approved"
 last_updated: "2026-04-22T19:30:00.000Z"
-last_activity: 2026-10-03
+last_activity: 2026-10-11
 progress:
   total_phases: 4
   completed_phases: 4
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-03-28)
 Phase: 04
 Plan: Not started
 Status: All phases and plans complete — v1.0 milestone delivered
-Last activity: 2026-10-03 — Books and Community Engagement implemented and verified locally
+Last activity: 2026-10-11 — Turtle Books reading added and verified locally
 
 Progress: [##########] 100%
 
@@ -101,8 +101,10 @@ None yet.
 
 | 261003-m7b | Add The Elephant’s Garden, two-book discovery/popup, and Community Engagement with preserved content | 2026-10-03 | uncommitted | [261003-m7b](./quick/261003-m7b-add-elephants-garden-book-and-community-/) |
 
+| 261011-hwr | Add December 12 Turtle Books reading with automatic archiving; preserve existing design | 2026-10-11 | uncommitted | [261011-hwr](./quick/261011-hwr-add-december-12-turtle-books-author-read/) |
+
 ## Session Continuity
 
-Last session: 2026-10-03
-Stopped at: Completed quick task 261003-m7b locally; production deployment not performed
+Last session: 2026-10-11
+Stopped at: Completed quick task 261011-hwr locally; production deployment not performed
 Resume file: None
