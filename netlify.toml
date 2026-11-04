@@ -45,3 +45,18 @@
   from = "/community-engagement/"
   to = "/community-engagement.html"
   status = 200
+
+[[redirects]]
+  from = "/basketball"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/basketball/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/basketball.html"
+  to = "/"
+  status = 301
