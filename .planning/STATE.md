@@ -5,7 +5,7 @@ milestone_name: milestone
 status: completed
 stopped_at: "Completed 04-03-PLAN.md: end-to-end production verification approved"
 last_updated: "2026-04-22T19:30:00.000Z"
-last_activity: 2026-10-11
+last_activity: 2026-11-04
 progress:
   total_phases: 4
   completed_phases: 4
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-03-28)
 Phase: 04
 Plan: Not started
 Status: All phases and plans complete — v1.0 milestone delivered
-Last activity: 2026-10-11 — Turtle Books reading added and verified locally
+Last activity: 2026-11-04 — Faster hero, updated About portrait, and compact Books carousel verified with Node mocks
 
 Progress: [##########] 100%
 
@@ -105,8 +105,10 @@ None yet.
 
 | 261104-g5l | Integrate five author photos and remove basketball photography | 2026-11-04 | 2a854e5 | [261104-g5l](./quick/261104-g5l-integrate-five-author-photos-and-remove-/) |
 
+| 261104-gh6 | Faster hero, updated About portrait, compact accessible Books carousel | 2026-11-04 | 05a60bd | [261104-gh6](./quick/261104-gh6-speed-hero-rotation-replace-about-portra/) |
+
 ## Session Continuity
 
-Last session: 2026-10-11
-Stopped at: Completed quick task 261011-hwr locally; production deployment not performed
+Last session: 2026-11-04
+Stopped at: Completed quick task 261104-gh6; browser visual verification unavailable
 Resume file: None
