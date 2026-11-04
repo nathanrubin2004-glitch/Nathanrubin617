@@ -555,3 +555,14 @@ body {
     .book-release-card p { margin: 0; line-height: 1.4; }
     .book-release-card .book-release-buy { padding: 10px 12px; text-align: center; font-size: 14px; }
 }
+
+/* Compact author photo carousel: preserve the full photographs at every width. */
+.books-carousel { max-width: 640px; margin-inline: auto; }
+.books-carousel-stage { height: clamp(260px, 45vw, 380px); background: #f3f4f6; border-radius: 12px; overflow: hidden; }
+.books-carousel-slide { height: 100%; }
+.books-carousel-slide[hidden] { display: none; }
+.books-carousel-photo { display: block; width: 100%; height: 100%; object-fit: contain; }
+.books-carousel-controls { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin-top: 16px; }
+.books-carousel-controls button { padding: 8px 12px; border-radius: 8px; background: #2563eb; color: white; font-weight: 600; }
+.books-carousel-controls button:hover { background: #1d4ed8; }
+.books-carousel-controls button:focus-visible { outline: 3px solid #1e40af; outline-offset: 3px; }

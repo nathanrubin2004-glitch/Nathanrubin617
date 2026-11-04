@@ -63,7 +63,7 @@
         ]
     ];
 
-    var ROTATE_EVERY_MS = 5000;  // one cell changes every 5 seconds
+    var ROTATE_EVERY_MS = 2500;  // one rotating cell changes every 2.5 seconds
     var FADE_MS = 1400;          // crossfade duration (matches CSS)
 
     function applyPhoto(img, photo) {
@@ -113,7 +113,7 @@
             });
 
             var cell = { base: base, fade: fade, pool: pool, idx: 0 };
-            cells.push(cell);
+            if (pool.length > 1) cells.push(cell);
 
             // Fresh lineup on every visit: start this cell on a random photo
             // from its pool, but only after verifying it loads. On failure,

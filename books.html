@@ -69,12 +69,20 @@
         </section>
         <section aria-labelledby="author-gallery-heading" class="bg-white rounded-xl shadow-lg p-6 sm:p-8 mb-12">
             <h2 id="author-gallery-heading" class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2">The Author Behind the Stories</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
-                <img src="author-books-landscape.webp" alt="Nathan Rubin holding Chasing a Dream and The Elephant’s Garden in front of a mural" width="1800" height="1200" loading="lazy" decoding="async" class="block w-full h-auto rounded-lg shadow-md">
-                <img src="author-community-mural.webp" alt="Nathan Rubin holding his children’s books in front of a colorful community mural" width="1800" height="1200" loading="lazy" decoding="async" class="block w-full h-auto rounded-lg shadow-md">
-                <img src="author-books-portrait.webp" alt="Nathan Rubin seated with both of his children’s books in front of a mural" width="1200" height="1800" loading="lazy" decoding="async" class="block w-full h-auto rounded-lg shadow-md">
-                <img src="author-books-closeup.webp" alt="Nathan Rubin looking down at Chasing a Dream and The Elephant’s Garden" width="1200" height="1800" loading="lazy" decoding="async" class="block w-full h-auto rounded-lg shadow-md">
-                <img src="author-reading-mural.webp" alt="Nathan Rubin reading The Elephant’s Garden beneath a mural" width="1200" height="1800" loading="lazy" decoding="async" class="block w-full h-auto rounded-lg shadow-md sm:col-span-2 sm:w-2/3 sm:mx-auto">
+            <div class="books-carousel" role="region" aria-roledescription="carousel" aria-label="Author photographs" data-books-carousel>
+                <div class="books-carousel-stage">
+                    <div class="books-carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 5"><img src="author-books-landscape.webp" alt="Nathan Rubin holding Chasing a Dream and The Elephant’s Garden in front of a mural" width="1800" height="1200" loading="lazy" decoding="async" class="books-carousel-photo"></div>
+                    <div class="books-carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 5" hidden><img src="author-community-mural.webp" alt="Nathan Rubin holding his children’s books in front of a colorful community mural" width="1800" height="1200" loading="lazy" decoding="async" class="books-carousel-photo"></div>
+                    <div class="books-carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 5" hidden><img src="author-books-portrait.webp" alt="Nathan Rubin seated with both of his children’s books in front of a mural" width="1200" height="1800" loading="lazy" decoding="async" class="books-carousel-photo"></div>
+                    <div class="books-carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 5" hidden><img src="author-books-closeup.webp" alt="Nathan Rubin looking down at Chasing a Dream and The Elephant’s Garden" width="1200" height="1800" loading="lazy" decoding="async" class="books-carousel-photo"></div>
+                    <div class="books-carousel-slide" role="group" aria-roledescription="slide" aria-label="5 of 5" hidden><img src="author-reading-mural.webp" alt="Nathan Rubin reading The Elephant’s Garden beneath a mural" width="1200" height="1800" loading="lazy" decoding="async" class="books-carousel-photo"></div>
+                </div>
+                <div class="books-carousel-controls">
+                    <button type="button" data-previous aria-label="Previous author photograph">← Previous</button>
+                    <span data-count>1 / 5</span>
+                    <button type="button" data-next aria-label="Next author photograph">Next →</button>
+                    <button type="button" data-playback aria-label="Pause automatic photo rotation">Pause</button>
+                </div>
             </div>
         </section>
     </main>
@@ -127,5 +135,6 @@
     <script src="chat.js"></script>
     <script src="polish.js"></script>
     <script src="book-release.js"></script>
+    <script src="books-carousel.js" defer></script>
 </body>
 </html>
