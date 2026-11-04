@@ -31,8 +31,8 @@
     // it is the guaranteed-valid fallback.
     var POOLS = [
         [
-            { src: 'Basketball1.JPG', pos: '50% 35%' },
-            { src: 'Headshot.jpeg', pos: '50% 20%' }
+            { src: 'author-books-landscape.webp', pos: '55% 50%', alt: 'Nathan Rubin holding his two children’s books' },
+            { src: 'Headshot.jpeg', pos: '50% 20%', alt: 'Portrait of Nathan Rubin' }
         ],
         [
             { src: 'assets/images/chasing-a-dream-cover.jpeg', pos: '50% 40%' },
@@ -48,8 +48,7 @@
             { src: 'assets/images/backpack-giveaway.jpg', pos: '50% 18%' }
         ],
         [
-            { src: 'https://i.imgur.com/4QRYvm7.jpeg', pos: '50% 50%' },
-            { src: 'Basketball2.JPG', pos: '50% 50%' }
+            { src: 'author-community-mural.webp', pos: '50% 50%', alt: 'Nathan Rubin with his books in front of a colorful community mural' }
         ],
         [
             { src: 'LevelGroundEvent.jpeg', pos: '50% 50%' }
@@ -69,6 +68,7 @@
 
     function applyPhoto(img, photo) {
         img.src = photo.src;
+        if (photo.alt && !img.hasAttribute('aria-hidden')) img.alt = photo.alt;
         img.style.objectPosition = photo.pos;
     }
 
