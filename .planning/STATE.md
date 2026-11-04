@@ -103,6 +103,8 @@ None yet.
 
 | 261011-hwr | Add December 12 Turtle Books reading with automatic archiving; preserve existing design | 2026-10-11 | uncommitted | [261011-hwr](./quick/261011-hwr-add-december-12-turtle-books-author-read/) |
 
+| 261104-g5l | Integrate five author photos and remove basketball photography | 2026-11-04 | 2a854e5 | [261104-g5l](./quick/261104-g5l-integrate-five-author-photos-and-remove-/) |
+
 ## Session Continuity
 
 Last session: 2026-10-11
